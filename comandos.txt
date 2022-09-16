@@ -1,0 +1,4 @@
+compilar: gcc -Wall main.c buscar-usuarios.c -o start
+executar: ./start
+
+// TODO criar alias no .bashrc

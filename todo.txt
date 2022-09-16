@@ -1,0 +1,8 @@
+[] resolver TODO
+[] adicionar opcao de voltar ao menu nas telas de login e cadastro
+[] criar arquivo de constantes para textos
+[] fornecer ao usuarios suas informacoes de cadastro
+[] investigar porque usuarios.txt esta pulando o registro 6
+[] PoC para encriptografar senhas e users de alguma forma mesmo que simples
+
+TASKS ESTAO EM ORDEM DE PRIORIDADE
