@@ -4,6 +4,9 @@
 #include "buscar-usuarios.h"
 
 #define MAX_LINE_LENGTH 1000
+#define COLUNA_ID 1
+#define COLUNA_USUARIO 2
+#define COLUNA_SENHA 3
 
 int buscar_usuarios()
 {
@@ -30,53 +33,44 @@ int buscar_usuarios()
 
     if (ch == '\n')
     {
-      if (coluna == 3) {
+      if (coluna == COLUNA_SENHA)
+      {
         printf("senha: %s\n", senha);
       }
 
       contador_registros += 1;
-      coluna = 1;
+      coluna = COLUNA_ID;
+      strcpy(id, "");
       strcpy(usuario, "");
       strcpy(senha, "");
-      strcpy(id, "");
       continue;
     }
 
-    if (ch == '\n')
-    {
-      contador_registros += 1;
-      coluna = 1;
-      strcpy(usuario, "");
-      strcpy(senha, "");
-      strcpy(id, "");
-      continue;
-    }
-
-    if (ch == ',' && coluna == 1)
+    if (ch == ',' && coluna == COLUNA_ID)
     {
       coluna += 1;
       printf("\nid: %s ", id);
       continue;
     }
 
-    if (ch == ',' && coluna == 2)
+    if (ch == ',' && coluna == COLUNA_USUARIO)
     {
       coluna += 1;
       printf("nome: %s ", usuario);
       continue;
     }
 
-    if (coluna == 1)
+    if (coluna == COLUNA_ID)
     {
       strncat(id, &ch, 1);
     }
 
-    if (coluna == 2)
+    if (coluna == COLUNA_USUARIO)
     {
       strncat(usuario, &ch, 1);
     }
 
-    if (coluna == 3)
+    if (coluna == COLUNA_SENHA)
     {
       strncat(senha, &ch, 1);
     }
