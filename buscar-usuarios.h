@@ -7,6 +7,19 @@
  * This is a function declaration.
  * It tells the compiler that the function exists somewhere.
  */
-int buscar_usuarios();
+struct Usuario
+{
+    char id[5];
+    char usuario[21];
+    char senha[21];
+};
+
+struct Buscar_usuarios_retorno buscar_usuarios();
+
+struct Buscar_usuarios_retorno
+{
+    int quantidade_usuarios;
+    struct Usuario *usuarios;
+};
 
 #endif /* BUSCAR_USUARIOS_DOT_H */

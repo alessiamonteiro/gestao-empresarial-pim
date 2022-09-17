@@ -1,4 +1,5 @@
-[] resolver TODO
+[x] resolver TODOs
+[] refatorar login para verificar dados no arquivo.txt
 [] adicionar opcao de voltar ao menu nas telas de login e cadastro
 [] criar arquivo de constantes para textos
 [] fornecer ao usuarios suas informacoes de cadastro

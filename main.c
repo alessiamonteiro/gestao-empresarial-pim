@@ -2,20 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+
 #include "buscar-usuarios.h"
 #include "criar-usuario.h"
 
-#define VERDADEIRO 0
+const int VERDADEIRO = 0;
+const int ERRO = -1;
+
+#define TEXTO_TITULO_HOME "---------------- HOME ----------------\n"
+#define TEXTO_TITULO_CADASTRO "-------------- CADASTRO --------------\n"
+#define TEXTO_BEM_VINDO "------------------- Seja bem-vindo a nossa plataforma de gestão empresarial! :) --------------------\n"
+#define TEXTO_OPCAO_INVALIDA "opção invalida, por favor digite novamente:\n"
+#define TEXTO_OPCOES_MENU "\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario \n 3- Buscar Usuarios\n"
 
 int acao;
-
-struct Usuario
-{
-    char nome[21];
-    char senha[21];
-};
-
-struct Usuario usuarios[50];
 
 void menu();
 void opcoes_menu();
@@ -30,7 +30,7 @@ char senha_usuario_logado[21];
 
 void menu()
 {
-    printf("\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario \n 3- Buscar Usuarios\n");
+    printf(TEXTO_OPCOES_MENU);
     scanf("%i", &acao);
     opcoes_menu(acao);
 }
@@ -52,7 +52,7 @@ void opcoes_menu(int acao)
         break;
 
     default:
-        printf("opção invalida, por favor digite novamente:\n");
+        printf(TEXTO_OPCAO_INVALIDA);
         menu();
         break;
     }
@@ -60,6 +60,7 @@ void opcoes_menu(int acao)
 
 void login()
 {
+    struct Usuario usuarios[50];
     char user[21];
     char senha_usuario[21];
 
@@ -72,7 +73,7 @@ void login()
 
     for (int i = 0; i <= 50; i++)
     {
-        int compara_nome = strcmp(usuarios[i].nome, user);
+        int compara_nome = strcmp(usuarios[i].usuario, user);
         int compara_senha = strcmp(usuarios[i].senha, senha_usuario);
 
         if (compara_nome == VERDADEIRO && compara_senha == VERDADEIRO)
@@ -98,7 +99,7 @@ void cadastro()
     char confirmacao_senha[21];
 
     system("reset");
-    printf("---------------- CADASTRO ---------------\n");
+    printf(TEXTO_TITULO_CADASTRO);
     printf("Digite seu user:\n");
     scanf("%s", user);
     printf("digite sua senha:\n");
@@ -123,63 +124,49 @@ void cadastro()
         return;
     }
 
-    // TODO deixar de percorrer o array e passar a percorrer o usuarios.txt
-    for (int i = 0; i <= 50; i++)
-    {
-        int valida_usuario_existente = strcmp(usuarios[i].nome, user);
+    struct Buscar_usuarios_retorno retorno = buscar_usuarios();
 
-        int valida_usuario_disponivel = strcmp(usuarios[i].nome, "");
+    for (int i = 0; i <= retorno.quantidade_usuarios - 1; i++)
+    {
+        int valida_usuario_existente = strcmp(retorno.usuarios[i].usuario, user);
 
         if (valida_usuario_existente == VERDADEIRO)
         {
-            printf("usuario ja existente, digite outro user\n");
+            printf("usuario ja existe, digite outro usuario\n");
             system("sleep 03");
             cadastro();
             break;
         }
 
-        // TODO mover logica de inserir dados no usuarios.txt para arquivo separado
-        if (valida_usuario_disponivel == VERDADEIRO)
-        {
-            strcpy(usuarios[i].nome, user);
-            strcpy(usuarios[i].senha, senha_usuario);
-
-            int id_ultimo_usuario = buscar_usuarios();
-            int id_proximo_usuario = 0;
-
-            if (id_ultimo_usuario != -1)
-            {
-                id_proximo_usuario = id_ultimo_usuario + 1;
-            }
-
-            criar_usuario(user, senha_usuario, id_proximo_usuario);
-
-            login();
-            break;
-        }
+        criar_usuario(user, senha_usuario, retorno.quantidade_usuarios);
+        login();
+        break;
     }
 }
 
 void home()
 {
     system("reset");
-    printf("------------------------ HOME -----------------------------");
+    printf(TEXTO_TITULO_HOME);
 }
 
 void buscar_usuarios_todos()
 {
     system("reset");
-    printf("lista de usuarios: \n");
-    int err = buscar_usuarios();
+    printf("lista de usuarios: \n\n");
+    struct Buscar_usuarios_retorno retorno = buscar_usuarios();
 
-    if (err == -1)
+    for (int i = 0; i < retorno.quantidade_usuarios - 1; i++)
     {
-        buscar_usuarios();
+        printf("id: %s, usuario: %s, senha: %s \n",
+               retorno.usuarios[i].id,
+               retorno.usuarios[i].usuario,
+               retorno.usuarios[i].senha);
     }
 }
 
-int main(void)
+int main()
 {
-    printf("------------------- Seja bem-vindo a nossa plataforma de gestão empresarial! :) --------------------\n");
+    printf(TEXTO_BEM_VINDO);
     menu();
 }

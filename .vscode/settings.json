@@ -5,6 +5,7 @@
         "string.h": "c",
         "stdbool.h": "c",
         "criar-usuario.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "buscar-usuarios.h": "c"
     }
 }
