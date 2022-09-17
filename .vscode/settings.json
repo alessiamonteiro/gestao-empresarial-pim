@@ -3,6 +3,8 @@
         "json.h": "c",
         "json_object.h": "c",
         "string.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "criar-usuario.h": "c",
+        "stdio.h": "c"
     }
 }

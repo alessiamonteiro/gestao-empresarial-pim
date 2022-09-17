@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "buscar-usuarios.h"
+#include "criar-usuario.h"
 
 #define VERDADEIRO 0
 
@@ -28,8 +29,8 @@ char usuario_logado[21];
 char senha_usuario_logado[21];
 
 void menu()
-{   
-    printf("\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario \n 3- Buscar Usuarios");
+{
+    printf("\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario \n 3- Buscar Usuarios\n");
     scanf("%i", &acao);
     opcoes_menu(acao);
 }
@@ -46,7 +47,7 @@ void opcoes_menu(int acao)
         cadastro();
         break;
 
-    case 3: 
+    case 3:
         buscar_usuarios_todos();
         break;
 
@@ -75,7 +76,7 @@ void login()
         int compara_senha = strcmp(usuarios[i].senha, senha_usuario);
 
         if (compara_nome == VERDADEIRO && compara_senha == VERDADEIRO)
-        {   
+        {
             strcpy(usuario_logado, user);
             strcpy(senha_usuario_logado, user);
             printf("login realizado com sucesso\n");
@@ -121,8 +122,8 @@ void cadastro()
         cadastro();
         return;
     }
-    
-    //TODO deixar de percorrer o array e passar a percorrer o usuarios.txt
+
+    // TODO deixar de percorrer o array e passar a percorrer o usuarios.txt
     for (int i = 0; i <= 50; i++)
     {
         int valida_usuario_existente = strcmp(usuarios[i].nome, user);
@@ -136,36 +137,23 @@ void cadastro()
             cadastro();
             break;
         }
-        
-        //TODO mover logica de inserir dados no usuarios.txt para arquivo separado
+
+        // TODO mover logica de inserir dados no usuarios.txt para arquivo separado
         if (valida_usuario_disponivel == VERDADEIRO)
         {
             strcpy(usuarios[i].nome, user);
             strcpy(usuarios[i].senha, senha_usuario);
 
-            FILE *txt_usuarios; 
-            txt_usuarios = fopen("usuarios.txt", "a");
-
             int id_ultimo_usuario = buscar_usuarios();
             int id_proximo_usuario = 0;
 
-            if (id_ultimo_usuario != -1) {
+            if (id_ultimo_usuario != -1)
+            {
                 id_proximo_usuario = id_ultimo_usuario + 1;
             }
 
-            if (txt_usuarios == NULL)
-            {
-                printf("Erro na abertura do arquivo!");
-                return;
-            }
+            criar_usuario(user, senha_usuario, id_proximo_usuario);
 
-            fprintf(txt_usuarios, "%i,%s,%s\n", id_proximo_usuario, usuarios[i].nome, usuarios[i].senha);
-            fclose(txt_usuarios);
-
-            printf("Dados gravados com sucesso!");
-
-            printf("Cadastro realizado com sucesso!\n");
-            system("sleep 02");
             login();
             break;
         }
@@ -178,12 +166,14 @@ void home()
     printf("------------------------ HOME -----------------------------");
 }
 
-void buscar_usuarios_todos() {
+void buscar_usuarios_todos()
+{
     system("reset");
     printf("lista de usuarios: \n");
     int err = buscar_usuarios();
 
-    if (err == -1) {
+    if (err == -1)
+    {
         buscar_usuarios();
     }
 }
