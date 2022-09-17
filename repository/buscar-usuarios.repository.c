@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "buscar-usuarios.h"
+#include "../core/headers/buscar-usuarios.repository.h"
 
 #define COLUNA_ID 1
 #define COLUNA_USUARIO 2
@@ -8,9 +8,9 @@
 
 struct Usuario usuarios[] = {};
 
-struct Buscar_usuarios_retorno buscar_usuarios_retorno;
+struct Buscar_usuarios_repository repository_retorno;
 
-struct Buscar_usuarios_retorno buscar_usuarios()
+struct Buscar_usuarios_repository buscar_usuarios_repository()
 {
     FILE *textfile;
 
@@ -76,7 +76,7 @@ struct Buscar_usuarios_retorno buscar_usuarios()
         }
     }
 
-    buscar_usuarios_retorno.quantidade_usuarios = contador_registros;
-    buscar_usuarios_retorno.usuarios = usuarios;
-    return buscar_usuarios_retorno;
+    repository_retorno.quantidade_usuarios = contador_registros;
+    repository_retorno.usuarios = usuarios;
+    return repository_retorno;
 }

@@ -6,6 +6,9 @@
         "stdbool.h": "c",
         "criar-usuario.h": "c",
         "stdio.h": "c",
-        "buscar-usuarios.h": "c"
+        "buscar-usuarios.h": "c",
+        "login-usuario.boundary.h": "c",
+        "login-usuario.h": "c",
+        "login-usuario.usecase.h": "c"
     }
 }

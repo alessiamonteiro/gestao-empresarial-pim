@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "criar-usuario.h"
+#include "../core/headers/criar-usuario.repository.h"
 
-void criar_usuario(char nome[21], char senha[21], int id)
+void criar_usuario_repository(char nome[21], char senha[21], int id)
 {
     FILE *txt_usuarios;
     txt_usuarios = fopen("usuarios.txt", "a");
