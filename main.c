@@ -30,6 +30,7 @@ char senha_usuario_logado[21];
 
 void menu()
 {
+    system("reset");
     printf(TEXTO_OPCOES_MENU);
     scanf("%i", &acao);
     opcoes_menu(acao);
@@ -60,7 +61,6 @@ void opcoes_menu(int acao)
 
 void login()
 {
-    struct Usuario usuarios[50];
     char user[21];
     char senha_usuario[21];
 
@@ -71,10 +71,12 @@ void login()
     printf("senha:\n");
     scanf("%s", senha_usuario);
 
-    for (int i = 0; i <= 50; i++)
+    struct Buscar_usuarios_retorno retorno = buscar_usuarios();
+
+    for (int i = 0; i <= retorno.quantidade_usuarios - 1; i++)
     {
-        int compara_nome = strcmp(usuarios[i].usuario, user);
-        int compara_senha = strcmp(usuarios[i].senha, senha_usuario);
+        int compara_nome = strcmp(retorno.usuarios[i].usuario, user);
+        int compara_senha = strcmp(retorno.usuarios[i].senha, senha_usuario);
 
         if (compara_nome == VERDADEIRO && compara_senha == VERDADEIRO)
         {
