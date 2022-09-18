@@ -1,14 +1,15 @@
-#ifndef LOGIN_USUARIO_USECASE_DOT_H    /* This is an "include guard" */
-#define LOGIN_USUARIO_USECASE_DOT_H    /* prevents the file from being included twice. */
-                     /* Including a header file twice causes all kinds */
-                     /* of interesting problems.*/
+#ifndef LOGIN_USUARIO_USECASE_DOT_H /* This is an "include guard" */
+#define LOGIN_USUARIO_USECASE_DOT_H /* prevents the file from being included twice. */
+                                    /* Including a header file twice causes all kinds */
+                                    /* of interesting problems.*/
 
 /**
  * This is a function declaration.
  * It tells the compiler that the function exists somewhere.
  */
 
-struct Login_usuario {
+struct Login_usuario
+{
     char usuario[21];
     char senha[21];
 };

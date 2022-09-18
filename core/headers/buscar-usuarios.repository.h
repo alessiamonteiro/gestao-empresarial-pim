@@ -1,7 +1,7 @@
-#ifndef BUSCAR_USUARIOS_REPOSITORY_DOT_H    /* This is an "include guard" */
-#define BUSCAR_USUARIOS_REPOSITORY_DOT_H    /* prevents the file from being included twice. */
-                     /* Including a header file twice causes all kinds */
-                     /* of interesting problems.*/
+#ifndef BUSCAR_USUARIOS_REPOSITORY_DOT_H /* This is an "include guard" */
+#define BUSCAR_USUARIOS_REPOSITORY_DOT_H /* prevents the file from being included twice. */
+                                         /* Including a header file twice causes all kinds */
+                                         /* of interesting problems.*/
 
 /**
  * This is a function declaration.

@@ -18,7 +18,7 @@ struct Login_usuario_usecase login_usuario_usecase(char user[21], char senha_usu
         if (compara_nome == 0 && compara_senha == 0)
         {
             strcpy(login_usuario.usuario, user);
-            strcpy(login_usuario.senha, user);
+            strcpy(login_usuario.senha, senha_usuario);
             strcpy(usecase_retorno.mensagem, "login realizado com sucesso\n");
             usecase_retorno.erro = 0;
             usecase_retorno.login_usuario = login_usuario;

@@ -3,6 +3,4 @@
 3,alessia,jaos
 4,ale,mac
 5,thiago,nerd
-6,agorasim,eu
-7,kkkkkkkk,kkk
-8,marquin,moa
+

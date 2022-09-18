@@ -15,9 +15,8 @@ const int ERRO = -1;
 #define TEXTO_TITULO_LOGIN "\n ---------------- LOGIN ----------------"
 #define TEXTO_BEM_VINDO "------------------- Seja bem-vindo a nossa plataforma de gestão empresarial! :) --------------------\n"
 #define TEXTO_OPCAO_INVALIDA "opção invalida, por favor digite novamente:\n"
-#define TEXTO_OPCOES_MENU "\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario \n 3- Buscar Usuarios\n"
-
-int acao;
+#define TEXTO_OPCOES_MENU "\nMENU \n selecione o número referente a ação que deseja!\n 1- Login \n 2- Criar Usuario\n"
+#define TEXTO_OPCOES_HOME "\nSelecione o número referente a ação que deseja!\n\n 1- Perfil \n 2- Buscar Usuarios  \n 3- Voltar ao menu inicial\n"
 
 void menu();
 void opcoes_menu();
@@ -26,12 +25,14 @@ void cadastro();
 void preencher_valor_inicial_usuarios();
 void home();
 void buscar_usuarios_todos();
+void perfil();
 
 char usuario_logado[21];
 char senha_usuario_logado[21];
 
 void menu()
 {
+    int acao;
     puts(TEXTO_OPCOES_MENU);
     scanf("%i", &acao);
     opcoes_menu(acao);
@@ -49,10 +50,6 @@ void opcoes_menu(int acao)
         cadastro();
         break;
 
-    case 3:
-        buscar_usuarios_todos();
-        break;
-
     default:
         puts(TEXTO_OPCAO_INVALIDA);
         menu();
@@ -67,14 +64,17 @@ void login()
 
     system("reset");
     puts(TEXTO_TITULO_LOGIN);
+
     puts("\nusuario: \n");
     scanf("%s", user);
+
     puts("senha:\n");
     scanf("%s", senha_usuario);
 
     struct Login_usuario_usecase usecase_retorno = login_usuario_usecase(user, senha_usuario);
 
-    if (usecase_retorno.erro == true) {
+    if (usecase_retorno.erro == true)
+    {
         puts(usecase_retorno.mensagem);
         system("sleep 02");
         login();
@@ -85,7 +85,7 @@ void login()
     strcpy(senha_usuario_logado, usecase_retorno.login_usuario.senha);
     puts(usecase_retorno.mensagem);
     system("sleep 02");
-    menu();
+    home();
     return;
 }
 
@@ -97,10 +97,13 @@ void cadastro()
 
     system("reset");
     printf(TEXTO_TITULO_CADASTRO);
+
     puts("Digite seu user:\n");
     scanf("%s", user);
+
     puts("digite sua senha:\n");
     scanf("%s", senha_usuario);
+
     puts("digite sua senha:\n");
     scanf("%s", confirmacao_senha);
 
@@ -143,10 +146,55 @@ void cadastro()
     // criar-usuario.usecase.c
 }
 
+void perfil()
+{
+    int acao;
+    system("reset");
+    printf("usuario: %s\n", usuario_logado);
+    printf("senha: %s\n", senha_usuario_logado);
+    puts("Digite 1 para voltar para a home");
+    scanf("%i", &acao);
+
+    switch (acao)
+    {
+    case 1:
+        home();
+        break;
+
+    default:
+        puts(TEXTO_OPCAO_INVALIDA);
+        menu();
+        break;
+    }
+}
+
 void home()
 {
+    int acao;
     system("reset");
     printf(TEXTO_TITULO_HOME);
+    puts(TEXTO_OPCOES_HOME);
+    scanf("%i", &acao);
+
+    switch (acao)
+    {
+    case 1:
+        perfil();
+        break;
+
+    case 2:
+        buscar_usuarios_todos();
+        break;
+
+    case 3:
+        menu();
+        break;
+
+    default:
+        puts(TEXTO_OPCAO_INVALIDA);
+        menu();
+        break;
+    }
 }
 
 void buscar_usuarios_todos()
