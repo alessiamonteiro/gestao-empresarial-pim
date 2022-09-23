@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../headers/buscar-usuarios.repository.h"
 #include "../headers/login-usuario.usecase.h"
+#include "../../dataprovider/headers/buscar-usuarios.repository.h"
 
 struct Login_usuario_usecase login_usuario_usecase(char user[21], char senha_usuario[21])
 {
@@ -10,7 +10,7 @@ struct Login_usuario_usecase login_usuario_usecase(char user[21], char senha_usu
     struct Login_usuario_usecase usecase_retorno;
     struct Buscar_usuarios_repository repository_retorno = buscar_usuarios_repository();
 
-    for (int i = 0; i <= repository_retorno.quantidade_usuarios - 1; i++)
+    for (int i = 0; i < repository_retorno.quantidade_usuarios; i++)
     {
         int compara_nome = strcmp(repository_retorno.usuarios[i].usuario, user);
         int compara_senha = strcmp(repository_retorno.usuarios[i].senha, senha_usuario);

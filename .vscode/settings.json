@@ -9,6 +9,9 @@
         "buscar-usuarios.h": "c",
         "login-usuario.boundary.h": "c",
         "login-usuario.h": "c",
-        "login-usuario.usecase.h": "c"
+        "login-usuario.usecase.h": "c",
+        "buscar-usuarios.repository.h": "c",
+        "locale.h": "c",
+        "buscar-usuarios.controller.h": "c"
     }
 }

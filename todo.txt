@@ -1,9 +1,15 @@
-[x] resolver TODOs
-[x] refatorar login para verificar dados no arquivo.txt
-[] adicionar opcao de voltar ao menu nas telas de login e cadastro
+[] criar um client generico para as chamadas ao servidor
 [] criar arquivo de constantes para textos
 [] fornecer ao usuarios suas informacoes de cadastro
 [] investigar porque usuarios.txt esta pulando o registro 6
 [] PoC para encriptografar senhas e users de alguma forma mesmo que simples
 
 TASKS ESTAO EM ORDEM DE PRIORIDADE
+
+MASSA DE DADOS
+1,alex,jojo
+2,manara,putao
+3,alessia,jaos
+4,ale,mac
+5,thiago,nerd
+6,zika,braba

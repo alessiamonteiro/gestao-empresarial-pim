@@ -3,9 +3,10 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "./core/headers/buscar-usuarios.repository.h"
-#include "./core/headers/criar-usuario.repository.h"
 #include "./core/headers/login-usuario.usecase.h"
+#include "./dataprovider/headers/criar-usuario.repository.h"
+#include "./dataprovider/headers/buscar-usuarios.repository.h"
+#include "./client/headers/socket-client.h"
 
 const int VERDADEIRO = 0;
 const int ERRO = -1;
@@ -101,10 +102,10 @@ void cadastro()
     puts("Digite seu user:\n");
     scanf("%s", user);
 
-    puts("digite sua senha:\n");
+    puts("Digite sua senha:\n");
     scanf("%s", senha_usuario);
 
-    puts("digite sua senha:\n");
+    puts("Confirme sua senha:\n");
     scanf("%s", confirmacao_senha);
 
     if (strlen(user) > 15 || strlen(senha_usuario) > 15)
@@ -126,8 +127,9 @@ void cadastro()
 
     // TODO mover para usecase de criar-usuario.usecase.c
     struct Buscar_usuarios_repository retorno = buscar_usuarios_repository();
+    int id = retorno.quantidade_usuarios + 1;
 
-    for (int i = 0; i <= retorno.quantidade_usuarios - 1; i++)
+    for (int i = 0; i < retorno.quantidade_usuarios; i++)
     {
         int valida_usuario_existente = strcmp(retorno.usuarios[i].usuario, user);
 
@@ -138,11 +140,9 @@ void cadastro()
             cadastro();
             break;
         }
-
-        criar_usuario_repository(user, senha_usuario, retorno.quantidade_usuarios);
-        login();
-        break;
     }
+    criar_usuario_repository(user, senha_usuario, id);
+    login();
     // criar-usuario.usecase.c
 }
 
@@ -203,13 +203,17 @@ void buscar_usuarios_todos()
     puts("lista de usuarios: \n\n");
     struct Buscar_usuarios_repository retorno = buscar_usuarios_repository();
 
-    for (int i = 0; i < retorno.quantidade_usuarios - 1; i++)
+    for (int i = 0; i < retorno.quantidade_usuarios; i++)
     {
         printf("id: %s, usuario: %s, senha: %s \n",
                retorno.usuarios[i].id,
                retorno.usuarios[i].usuario,
                retorno.usuarios[i].senha);
     }
+
+    char buscar_usuarios_response[1024] = {};
+    socket_client("GET/usuarios", buscar_usuarios_response);
+    puts(buscar_usuarios_response);
 }
 
 int main()

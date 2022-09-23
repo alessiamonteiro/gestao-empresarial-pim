@@ -1,8 +1,7 @@
 gcc -Wall main.c \
-./repository/buscar-usuarios.repository.c \
-./repository/criar-usuario.repository.c \
+./dataprovider/repository/buscar-usuarios.repository.c \
+./dataprovider/repository/criar-usuario.repository.c \
 ./core/usecase/login-usuario.usecase.c \
--o start
-
+./client/socket-client.c -o start
 
 ./start

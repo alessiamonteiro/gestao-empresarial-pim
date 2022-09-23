@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../core/headers/criar-usuario.repository.h"
+#include "../headers/criar-usuario.repository.h"
 
 void criar_usuario_repository(char nome[21], char senha[21], int id)
 {

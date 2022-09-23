@@ -17,9 +17,11 @@ struct Usuario
 struct Buscar_usuarios_repository buscar_usuarios_repository();
 
 struct Buscar_usuarios_repository
-{
+{   
+    int erro;
+    char * mensagem;
     int quantidade_usuarios;
-    struct Usuario *usuarios;
+    struct Usuario * usuarios;
 };
 
 #endif /* BUSCAR_USUARIOS_REPOSITORY_DOT_H */

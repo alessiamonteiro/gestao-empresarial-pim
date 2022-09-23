@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "../core/headers/buscar-usuarios.repository.h"
+#include "../headers/buscar-usuarios.repository.h"
 
 #define COLUNA_ID 1
 #define COLUNA_USUARIO 2
@@ -8,7 +9,11 @@
 
 struct Usuario usuarios[] = {};
 
-struct Buscar_usuarios_repository repository_retorno;
+struct Buscar_usuarios_repository repository_retorno= {
+    0,
+    "",
+    0,
+};
 
 struct Buscar_usuarios_repository buscar_usuarios_repository()
 {
@@ -20,13 +25,18 @@ struct Buscar_usuarios_repository buscar_usuarios_repository()
     char id[5] = "";
 
     int coluna = 1;
-    int contador_registros = 1;
+    int contador_registros = 0;
 
     textfile = fopen("usuarios.txt", "r");
 
     if (textfile == NULL)
     {
         puts("Ocorreu um erro ao abrir o arquivo");
+        repository_retorno.erro = 1;
+        repository_retorno.mensagem = "[ERRO] buscar_usuarios_repository";
+        repository_retorno.quantidade_usuarios = 0;
+        repository_retorno.usuarios = usuarios;
+        return repository_retorno;
     }
 
     while ((ch = fgetc(textfile)) != EOF)
@@ -35,9 +45,9 @@ struct Buscar_usuarios_repository buscar_usuarios_repository()
         {
             if (coluna == COLUNA_SENHA)
             {
-                strcpy(usuarios[contador_registros - 1].senha, senha);
+                strcpy(usuarios[contador_registros].senha, senha);
             }
-
+            
             contador_registros += 1;
             coluna = COLUNA_ID;
             strcpy(id, "");
@@ -49,14 +59,14 @@ struct Buscar_usuarios_repository buscar_usuarios_repository()
         if (ch == ',' && coluna == COLUNA_ID)
         {
             coluna += 1;
-            strcpy(usuarios[contador_registros - 1].id, id);
+            strcpy(usuarios[contador_registros].id, id);
             continue;
         }
 
         if (ch == ',' && coluna == COLUNA_USUARIO)
         {
             coluna += 1;
-            strcpy(usuarios[contador_registros - 1].usuario, usuario);
+            strcpy(usuarios[contador_registros].usuario, usuario);
             continue;
         }
 
@@ -76,7 +86,10 @@ struct Buscar_usuarios_repository buscar_usuarios_repository()
         }
     }
 
+    repository_retorno.erro = 0;
+    repository_retorno.mensagem = "[OK] buscar_usuarios_repository";
     repository_retorno.quantidade_usuarios = contador_registros;
     repository_retorno.usuarios = usuarios;
+
     return repository_retorno;
 }
