@@ -5,9 +5,11 @@
 #include "../headers.h"
 
 void mapear_resposta();
+
+char buscar_usuarios_response[1024] = {};
+
 struct Usuario usuario_model[1024] = {};
 struct Buscar_usuarios_model model = {0, "", 0};
-char buscar_usuarios_response[1024] = {};
 
 struct Buscar_usuarios_model buscar_usuarios_service()
 {

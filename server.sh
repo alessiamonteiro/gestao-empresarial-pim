@@ -1,6 +1,7 @@
 gcc server.c \
-./dataprovider/repository/buscar-usuarios.repository.c \
-./entrypoint/controller/buscar-usuarios.controller.c \
+./repository/buscar-usuarios.repository.c \
+./controller/buscar-usuarios.controller.c \
+./usecase/buscar-usuarios.usecase.c \
 -o server
 
 

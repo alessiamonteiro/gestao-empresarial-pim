@@ -48,4 +48,6 @@ void buscar_usuarios_controller(char[1024]);
 
 struct Buscar_usuarios_model buscar_usuarios_service();
 
+struct Buscar_usuarios_model buscar_usuarios_usecase();
+
 #endif /* HEADERS_DOT_H */

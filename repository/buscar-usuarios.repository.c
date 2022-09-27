@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../headers.h"
+#include "../headers.h"
 
 #define COLUNA_ID 1
 #define COLUNA_USUARIO 2

@@ -15,7 +15,8 @@
         "buscar-usuarios.controller.h": "c",
         "buscar-usuarios.model.h": "c",
         "buscar-usuarios.service.h": "c",
-        "usuario.model.h": "c"
+        "usuario.model.h": "c",
+        "headers.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
