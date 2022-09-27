@@ -1,3 +1,4 @@
+[] resolver bug do loop infinito ao digitar e pressionar enter durante a troca de tela login para menu
 [] criar um client generico para as chamadas ao servidor
 [] criar arquivo de constantes para textos
 [] fornecer ao usuarios suas informacoes de cadastro

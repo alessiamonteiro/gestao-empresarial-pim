@@ -3,10 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "./core/headers/login-usuario.usecase.h"
-#include "./dataprovider/headers/criar-usuario.repository.h"
-#include "./dataprovider/headers/buscar-usuarios.repository.h"
-#include "./client/headers/socket-client.h"
+#include "./headers.h"
 
 const int VERDADEIRO = 0;
 const int ERRO = -1;
@@ -126,7 +123,7 @@ void cadastro()
     }
 
     // TODO mover para usecase de criar-usuario.usecase.c
-    struct Buscar_usuarios_repository retorno = buscar_usuarios_repository();
+    struct Buscar_usuarios_model retorno = buscar_usuarios_repository();
     int id = retorno.quantidade_usuarios + 1;
 
     for (int i = 0; i < retorno.quantidade_usuarios; i++)
@@ -201,19 +198,16 @@ void buscar_usuarios_todos()
 {
     system("reset");
     puts("lista de usuarios: \n\n");
-    struct Buscar_usuarios_repository retorno = buscar_usuarios_repository();
 
-    for (int i = 0; i < retorno.quantidade_usuarios; i++)
+    struct Buscar_usuarios_model model = buscar_usuarios_service();
+
+    for (int i = 0; i < model.quantidade_usuarios; i++)
     {
         printf("id: %s, usuario: %s, senha: %s \n",
-               retorno.usuarios[i].id,
-               retorno.usuarios[i].usuario,
-               retorno.usuarios[i].senha);
+               model.usuarios[i].id,
+               model.usuarios[i].usuario,
+               model.usuarios[i].senha);
     }
-
-    char buscar_usuarios_response[1024] = {};
-    socket_client("GET/usuarios", buscar_usuarios_response);
-    puts(buscar_usuarios_response);
 }
 
 int main()

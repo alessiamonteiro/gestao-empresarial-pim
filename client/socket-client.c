@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#include "./headers/socket-client.h"
+#include "../headers.h"
 
 void socket_client(char requisicao[], char resposta[]){
 

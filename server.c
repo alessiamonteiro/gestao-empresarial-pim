@@ -4,8 +4,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#include "./entrypoint/headers/buscar-usuarios.controller.h"
-#include "./dataprovider/headers/buscar-usuarios.repository.h"
+#include "./headers.h"
 
 int main()
 {

@@ -12,6 +12,10 @@
         "login-usuario.usecase.h": "c",
         "buscar-usuarios.repository.h": "c",
         "locale.h": "c",
-        "buscar-usuarios.controller.h": "c"
-    }
+        "buscar-usuarios.controller.h": "c",
+        "buscar-usuarios.model.h": "c",
+        "buscar-usuarios.service.h": "c",
+        "usuario.model.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

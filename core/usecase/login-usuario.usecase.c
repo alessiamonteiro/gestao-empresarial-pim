@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../headers/login-usuario.usecase.h"
-#include "../../dataprovider/headers/buscar-usuarios.repository.h"
+#include "../../headers.h"
 
 struct Login_usuario_usecase login_usuario_usecase(char user[21], char senha_usuario[21])
 {
     struct Login_usuario login_usuario;
     struct Login_usuario_usecase usecase_retorno;
-    struct Buscar_usuarios_repository repository_retorno = buscar_usuarios_repository();
+    struct Buscar_usuarios_model repository_retorno = buscar_usuarios_repository();
 
     for (int i = 0; i < repository_retorno.quantidade_usuarios; i++)
     {
