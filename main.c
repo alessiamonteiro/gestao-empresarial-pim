@@ -24,6 +24,7 @@ char senha_usuario_logado[21];
 void menu()
 {
     int acao;
+    system("reset");
     puts(TEXTO_OPCOES_MENU);
     scanf("%i", &acao);
     opcoes_menu(acao);
@@ -62,7 +63,7 @@ void login()
     puts("senha:\n");
     scanf("%s", senha_usuario);
 
-    struct Login_usuario_usecase usecase_retorno = login_usuario_usecase(user, senha_usuario);
+    struct Login_usuario_model usecase_retorno = login_usuario_service(user, senha_usuario);
 
     if (usecase_retorno.erro == true)
     {
@@ -190,10 +191,10 @@ void home()
 void buscar_usuarios_todos()
 {
     system("reset");
-    puts("lista de usuarios: \n\n");
 
     struct Buscar_usuarios_model model = buscar_usuarios_service();
 
+    puts("\n\nlista de usuarios: \n");
     for (int i = 0; i < model.quantidade_usuarios; i++)
     {
         printf("id: %s, usuario: %s, senha: %s \n",
@@ -201,6 +202,24 @@ void buscar_usuarios_todos()
                model.usuarios[i].usuario,
                model.usuarios[i].senha);
     }
+
+    int acao;
+    puts("\n\nDigite 1 para voltar para a home");
+    scanf("%i", &acao);
+
+    switch (acao)
+    {
+    case 1:
+        home();
+        break;
+    
+    default:
+        home();
+        // puts(TEXTO_OPCAO_INVALIDA);
+        // menu();
+        break;
+    }
+
 }
 
 int main()

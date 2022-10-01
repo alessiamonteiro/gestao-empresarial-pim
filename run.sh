@@ -3,6 +3,7 @@ gcc -Wall main.c \
 ./repository/criar-usuario.repository.c \
 ./usecase/login-usuario.usecase.c \
 ./service/buscar-usuarios.service.c \
+./service/login-usuario.service.c \
 ./client/socket-client.c -o start
 
 ./start

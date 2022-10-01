@@ -33,15 +33,15 @@ void socket_client(char requisicao[], char resposta[]){
   
   bzero(buffer, 1024);
   strcpy(buffer, requisicao);
-  printf("Client: %s\n", buffer);
+  // printf("Client: %s\n", buffer);
   send(sock, buffer, strlen(buffer), 0);
 
   bzero(buffer, 1024);
   recv(sock, buffer, sizeof(buffer), 0);
-  printf("Server: %s\n", buffer);
+  // printf("Server: %s\n", buffer);
 
   close(sock);
-  printf("Disconnected from the server.\n");
+  // printf("Disconnected from the server.\n");
 
   strcpy(resposta, buffer);
 

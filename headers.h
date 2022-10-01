@@ -33,9 +33,9 @@ struct Login_usuario
     char senha[21];
 };
 
-struct Login_usuario_usecase login_usuario_usecase(char[21], char[21]);
+struct Login_usuario_model login_usuario_usecase(char[21], char[21]);
 
-struct Login_usuario_usecase
+struct Login_usuario_model
 {
     int erro;
     char mensagem[151];
@@ -46,8 +46,12 @@ void socket_client(char requisicao[], char responsta[]);
 
 void buscar_usuarios_controller(char[1024]);
 
+void login_usuario_controller(char *, char *, char[1024]);
+
 struct Buscar_usuarios_model buscar_usuarios_service();
 
 struct Buscar_usuarios_model buscar_usuarios_usecase();
+
+struct Login_usuario_model login_usuario_service(char[21], char[21]);
 
 #endif /* HEADERS_DOT_H */

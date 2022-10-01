@@ -5,7 +5,7 @@
 
 #include "../headers.h"
 
-void mapear_resposta();
+void mapear_resposta(char buffer[1024], struct Buscar_usuarios_model model);
 
 void buscar_usuarios_controller(char buffer[1024])
 {

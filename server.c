@@ -52,14 +52,50 @@ int main()
     recv(client_sock, buffer, sizeof(buffer), 0);
     printf("Client: %s\n", buffer);
 
-    bzero(buffer, 1024);
-
-    if (strcmp(buffer, "GET/usuarios"))
+    if (strcmp(buffer, "GET/usuarios") == 0)
     {
+      bzero(buffer, 1024);
        buscar_usuarios_controller(buffer);
     }
 
-    printf("Server: %c\n", buffer[0]);
+    char * rota_login = strstr(buffer, "GET/login");
+
+    if (rota_login) {
+      int coluna = 1;
+      int deve_adicionar = 0;
+      char usuario[21] = "";
+      char senha[21] = "";
+      puts("RECEBI O LOGINS");
+      puts(buffer);
+
+      for (int i = 0; i < strlen(buffer); i++)
+      {
+        if (buffer[i] == '&') {
+          deve_adicionar = 0;
+          coluna +=1;
+        }
+
+        if (buffer[i] == '=') {
+          deve_adicionar = 1;
+          continue;
+        }
+
+        if (deve_adicionar == 1 && coluna == 1) {
+          strncat(usuario, &buffer[i], 1);
+        }
+
+        if (deve_adicionar == 1 && coluna == 2) {
+          strncat(senha, &buffer[i], 1);
+        }
+      }
+      puts(usuario);
+      puts(senha);
+      bzero(buffer, 1024);
+      
+      login_usuario_controller(usuario, senha, buffer);
+    }
+
+    printf("Server: %s\n", buffer);
     send(client_sock, buffer, strlen(buffer), 0);
 
     close(client_sock);
