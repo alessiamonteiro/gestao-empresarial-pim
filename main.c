@@ -10,10 +10,8 @@ const int VERDADEIRO = 0;
 const int ERRO = -1;
 
 void menu();
-void opcoes_menu();
 void login();
 void cadastro();
-void preencher_valor_inicial_usuarios();
 void home();
 void buscar_usuarios_todos();
 void perfil();
@@ -25,13 +23,10 @@ void menu()
 {
     int acao;
     system("reset");
+    puts(TEXTO_BEM_VINDO);
     puts(TEXTO_OPCOES_MENU);
     scanf("%i", &acao);
-    opcoes_menu(acao);
-}
 
-void opcoes_menu(int acao)
-{
     switch (acao)
     {
     case 1:
@@ -99,6 +94,8 @@ void cadastro()
     puts("Confirme sua senha:\n");
     scanf("%s", confirmacao_senha);
 
+    // TODO definir todas as validações que ocorreram na senha
+    // nao da p utilizar ; , & = nas varias de senha e usuario
     if (strlen(user) > 15 || strlen(senha_usuario) > 15)
     {
         puts(" usuario ou senha digitados possuem um numero maior de caracteres possiveis, (máximo 15 caracteres), digite novamente\n");
@@ -133,8 +130,8 @@ void cadastro()
         }
     }
     criar_usuario_repository(user, senha_usuario, id);
-    login();
     // criar-usuario.usecase.c
+    login();
 }
 
 void perfil()
@@ -143,6 +140,7 @@ void perfil()
     system("reset");
     printf("usuario: %s\n", usuario_logado);
     printf("senha: %s\n", senha_usuario_logado);
+
     puts("Digite 1 para voltar para a home");
     scanf("%i", &acao);
 
@@ -224,6 +222,5 @@ void buscar_usuarios_todos()
 
 int main()
 {
-    puts(TEXTO_BEM_VINDO);
     menu();
 }
