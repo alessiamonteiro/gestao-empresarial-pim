@@ -3,22 +3,26 @@
 #include <string.h>
 #include "../headers.h"
 
-void criar_usuario_repository(char nome[21], char senha[21], int id)
+struct Criar_usuario_model criar_usuario_repository(char nome[21], char senha[21], int id)
 {
+    struct Criar_usuario_model model = {0, "", ""};
     FILE *txt_usuarios;
     txt_usuarios = fopen("usuarios.txt", "a");
 
     if (txt_usuarios == NULL)
-    {
-        printf("Erro na abertura do arquivo!");
-        return;
+    {   
+        model.erro = 1;
+        model.usuario = "";
+        model.mensagem = "[ERRO] criar_usuario_repository";
+        return model;
     }
 
     fprintf(txt_usuarios, "%i,%s,%s\n", id, nome, senha);
 
     fclose(txt_usuarios);
 
-    printf("Dados gravados com sucesso!");
-    printf("Cadastro realizado com sucesso!\n");
-    system("sleep 02");
+    model.erro = 0;
+    model.usuario = nome;
+    model.mensagem = "Cadastro realizado com sucesso!\n";
+    return model;
 }

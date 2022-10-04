@@ -23,9 +23,18 @@ struct Buscar_usuarios_model
     struct Usuario * usuarios;
 };
 
+struct Criar_usuario_model 
+{
+    int erro;
+    char * mensagem;
+    char * usuario;
+};
+
 struct Buscar_usuarios_model buscar_usuarios_repository();
 
-void criar_usuario_repository(char[21], char[21], int);
+struct Criar_usuario_model criar_usuario_repository(char[21], char[21], int);
+
+struct Criar_usuario_model criar_usuario_usecase(char[21], char[21]);
 
 struct Login_usuario
 {

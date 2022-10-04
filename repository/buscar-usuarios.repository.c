@@ -31,7 +31,6 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
 
     if (textfile == NULL)
     {
-        puts("Ocorreu um erro ao abrir o arquivo");
         repository_retorno.erro = 1;
         repository_retorno.mensagem = "[ERRO] buscar_usuarios_repository";
         repository_retorno.quantidade_usuarios = 0;

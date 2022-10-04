@@ -113,25 +113,16 @@ void cadastro()
         return;
     }
 
-    // TODO mover para usecase de criar-usuario.usecase.c
-    struct Buscar_usuarios_model retorno = buscar_usuarios_repository();
-    int id = retorno.quantidade_usuarios + 1;
+    struct Criar_usuario_model model = criar_usuario_usecase(user, senha_usuario);
+    
+    puts(model.mensagem);
+    system("sleep 03");
 
-    for (int i = 0; i < retorno.quantidade_usuarios; i++)
-    {
-        int valida_usuario_existente = strcmp(retorno.usuarios[i].usuario, user);
-
-        if (valida_usuario_existente == VERDADEIRO)
-        {
-            puts(TEXTO_ERRO_CADASTRO_USUARIO_EXISTENTE);
-            system("sleep 03");
-            cadastro();
-            break;
-        }
+    if (model.erro == true) {
+        cadastro();
+    } else {
+        login();
     }
-    criar_usuario_repository(user, senha_usuario, id);
-    // criar-usuario.usecase.c
-    login();
 }
 
 void perfil()
