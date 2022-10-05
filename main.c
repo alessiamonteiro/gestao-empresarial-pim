@@ -113,8 +113,8 @@ void cadastro()
         return;
     }
 
-    struct Criar_usuario_model model = criar_usuario_usecase(user, senha_usuario);
-    
+    struct Criar_usuario_model model = criar_usuario_service(user, senha_usuario);
+   
     puts(model.mensagem);
     system("sleep 03");
 

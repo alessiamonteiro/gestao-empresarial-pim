@@ -36,6 +36,10 @@ struct Criar_usuario_model criar_usuario_repository(char[21], char[21], int);
 
 struct Criar_usuario_model criar_usuario_usecase(char[21], char[21]);
 
+void criar_usuario_controller(char * usuario, char * senha, char buffer[1024]);
+
+struct Criar_usuario_model criar_usuario_service(char[21], char[21]);
+
 struct Login_usuario
 {
     char usuario[21];
