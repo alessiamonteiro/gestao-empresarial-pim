@@ -1,3 +1,4 @@
+// NOTE aqui deve ter algum include desnecessario
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,7 +8,8 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-// aqui deve ter algum include desnecessario
+#include <stdbool.h>
+// NOTE aqui deve ter algum include desnecessario
 #include "./headers.h"
 
 #define MAX 1024
@@ -25,11 +27,11 @@ int main()
 
   if (server_sock == -1)
   {
-    printf("socket creation failed...\n");
+    printf("[ERROR] socket create\n");
     exit(0);
   }
-  else
-    printf("Socket successfully created..\n");
+
+  printf("[OK] socket create\n");
 
   bzero(&server_addr, sizeof(server_addr));
   // memset(&server_addr, '\0', sizeof(server_addr));
@@ -42,20 +44,20 @@ int main()
   // Binding newly created socket to given IP and verification
   if ((bind(server_sock, (SA *)&server_addr, sizeof(server_addr))) != 0)
   {
-    printf("socket bind failed...\n");
+    printf("[ERROR] server bind\n");
     exit(0);
   }
-  else
-    printf("Socket successfully binded..\n");
+  
+  printf("[OK] server bind\n");
 
   // Now server is ready to listen and verification
   if ((listen(server_sock, 5)) != 0)
   {
-    printf("Listen failed...\n");
+    printf("[ERROR] server listen\n");
     exit(0);
   }
-  else
-    printf("Server listening..\n");
+  
+  printf("[OK] server listen\n");
 
   while (1)
   {
@@ -64,110 +66,36 @@ int main()
 
     if (client_sock < 0)
     {
-      printf("server accept failed...\n");
+      printf("[ERROR] server accept client\n");
       exit(0);
     }
-    else
-      printf("server accept the client...\n");
+
+    printf("[OK] server accept client\n");
 
     bzero(buffer, MAX);
     recv(client_sock, buffer, sizeof(buffer), 0);
     printf("Client: %s\n", buffer);
 
-    if (strcmp(buffer, "GET/usuarios") == 0)
+    // sistema de roteamento
+    char *rota_login = strstr(buffer, "GET/login");
+    char *rota_cadastro = strstr(buffer, "POST/usuarios");
+    bool rota_buscar_usuarios = strcmp(buffer, "GET/usuarios") == 0;
+
+    if (rota_buscar_usuarios)
     {
-      bzero(buffer, MAX);
       buscar_usuarios_controller(buffer);
     }
 
-    char *rota_login = strstr(buffer, "GET/login");
-
     if (rota_login)
     {
-      int coluna = 1;
-      int deve_adicionar = 0;
-      char usuario[21] = "";
-      char senha[21] = "";
-      puts("RECEBI O LOGINS");
-      puts(buffer);
-
-      // obter parametros passados na mensagem
-      for (int i = 0; i < strlen(buffer); i++)
-      {
-        if (buffer[i] == '&')
-        {
-          deve_adicionar = 0;
-          coluna += 1;
-        }
-
-        if (buffer[i] == '=')
-        {
-          deve_adicionar = 1;
-          continue;
-        }
-
-        if (deve_adicionar == 1 && coluna == 1)
-        {
-          strncat(usuario, &buffer[i], 1);
-        }
-
-        if (deve_adicionar == 1 && coluna == 2)
-        {
-          strncat(senha, &buffer[i], 1);
-        }
-      }
-      
-      puts(usuario);
-      puts(senha);
-      bzero(buffer, 1024);
-
-      login_usuario_controller(usuario, senha, buffer);
+      login_usuario_controller(buffer);
     }
-
-    char *rota_cadastro = strstr(buffer, "POST/usuario");
 
     if (rota_cadastro)
     {
-      int coluna = 1;
-      int deve_adicionar = 0;
-      char usuario[21] = "";
-      char senha[21] = "";
-      puts("RECEBI O CADASTRO");
-      puts(buffer);
-
-      // obter parametros passados na mensagem
-      for (int i = 0; i < strlen(buffer); i++)
-      {
-        if (buffer[i] == '&')
-        {
-          deve_adicionar = 0;
-          coluna += 1;
-        }
-
-        if (buffer[i] == '=')
-        {
-          deve_adicionar = 1;
-          continue;
-        }
-
-        if (deve_adicionar == 1 && coluna == 1)
-        {
-          strncat(usuario, &buffer[i], 1);
-        }
-
-        if (deve_adicionar == 1 && coluna == 2)
-        {
-          strncat(senha, &buffer[i], 1);
-        }
-      }
-      
-      puts(usuario);
-      puts(senha);
-      bzero(buffer, 1024);
-
-      criar_usuario_controller(usuario, senha, buffer);
+      criar_usuario_controller(buffer);
     }
-
+    // fim do sistema de roteamento
 
     printf("Server: %s\n", buffer);
     send(client_sock, buffer, strlen(buffer), 0);

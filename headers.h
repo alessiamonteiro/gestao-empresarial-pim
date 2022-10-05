@@ -36,7 +36,7 @@ struct Criar_usuario_model criar_usuario_repository(char[21], char[21], int);
 
 struct Criar_usuario_model criar_usuario_usecase(char[21], char[21]);
 
-void criar_usuario_controller(char * usuario, char * senha, char buffer[1024]);
+void criar_usuario_controller(char buffer[1024]);
 
 struct Criar_usuario_model criar_usuario_service(char[21], char[21]);
 
@@ -59,7 +59,7 @@ void socket_client(char requisicao[], char responsta[]);
 
 void buscar_usuarios_controller(char[1024]);
 
-void login_usuario_controller(char *, char *, char[1024]);
+void login_usuario_controller(char[1024]);
 
 struct Buscar_usuarios_model buscar_usuarios_service();
 

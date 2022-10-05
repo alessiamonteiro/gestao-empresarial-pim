@@ -8,7 +8,7 @@ struct Criar_usuario_model mapear_criar_usuario_model(char buffer[1024]);
 
 struct Criar_usuario_model criar_usuario_service(char usuario[21], char senha[21]) {
     char response[1024] = {};
-    char url[60] = "POST/usuario";
+    char url[60] = "POST/usuarios";
     strcat(url, "?user=");
     strcat(url, usuario);
 
