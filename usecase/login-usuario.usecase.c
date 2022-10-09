@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <string.h>
-
 #include "../headers.h"
 
-struct Login_usuario_model login_usuario_usecase(char user[21], char senha_usuario[21])
+struct Login_usuario_model login_usuario_usecase(char user[22], char senha_usuario[22])
 {
     struct Login_usuario login_usuario;
     struct Login_usuario_model usecase_retorno;

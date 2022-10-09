@@ -1,12 +1,8 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
 #include "../headers.h"
 
 struct Criar_usuario_model mapear_criar_usuario_model(char buffer[1024]);
 
-struct Criar_usuario_model criar_usuario_service(char usuario[21], char senha[21]) {
+struct Criar_usuario_model criar_usuario_service(char usuario[22], char senha[22]) {
     char response[1024] = {};
     char url[60] = "POST/usuarios";
     strcat(url, "?user=");
@@ -25,7 +21,7 @@ struct Criar_usuario_model mapear_criar_usuario_model(char buffer[1024]) {
     int coluna = 1;
     char erro[2] = "0";
     char mensagem[151];
-    char usuario[21];
+    char usuario[22];
 
     struct Criar_usuario_model model = {0, ""};
     for (int i = 0; i < strlen(buffer); i++)

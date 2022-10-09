@@ -7,6 +7,7 @@ gcc server.c \
 ./usecase/buscar-usuarios.usecase.c \
 ./usecase/criar-usuario.usecase.c \
 ./usecase/login-usuario.usecase.c \
+./routes/router.c \
 -o server
 
 ./server

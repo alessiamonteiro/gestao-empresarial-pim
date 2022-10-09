@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../headers.h"
 
 #define COLUNA_ID 1
@@ -20,8 +17,8 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
     FILE *textfile;
 
     char ch;
-    char usuario[21] = "";
-    char senha[21] = "";
+    char usuario[22] = "";
+    char senha[22] = "";
     char id[5] = "";
 
     int coluna = 1;

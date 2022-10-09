@@ -1,12 +1,8 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
 #include "../headers.h"
 
 struct Login_usuario_model mapear_login_usuario_model(char buffer[1024]);
 
-struct Login_usuario_model login_usuario_service(char usuario[21], char senha[21]) {
+struct Login_usuario_model login_usuario_service(char usuario[22], char senha[22]) {
     char response[1024] = {};
     char url[60] = "GET/login";
     strcat(url, "?user=");

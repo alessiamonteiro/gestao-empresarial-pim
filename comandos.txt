@@ -1,5 +1,6 @@
-compilar: gcc -Wall main.c buscar-usuarios.c -o start
-executar: ./start
+permissao para executar script front: chmod +x ./run.sh 
+back: chmod +x ./run.sh
 
-permissao_para_executar_script: chmod +x run.sh
-compilar_e_executar: ./run.sh
+
+compilar e executar front: ./run.sh
+compilar e executar back: ./server.sh

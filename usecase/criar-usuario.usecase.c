@@ -1,11 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "../headers.h"
 #include "../constantes.h"
 
-struct Criar_usuario_model criar_usuario_usecase(char user[21], char senha[21]) {
+struct Criar_usuario_model criar_usuario_usecase(char user[22], char senha[22]) {
     struct Criar_usuario_model criar_usuario_model = {0, "", ""};
     struct Buscar_usuarios_model buscar_usuarios_model = buscar_usuarios_repository();
 

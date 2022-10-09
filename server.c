@@ -1,14 +1,10 @@
 // NOTE aqui deve ter algum include desnecessario
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <netdb.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-#include <stdbool.h>
 // NOTE aqui deve ter algum include desnecessario
 #include "./headers.h"
 
@@ -76,26 +72,7 @@ int main()
     recv(client_sock, buffer, sizeof(buffer), 0);
     printf("Client: %s\n", buffer);
 
-    // sistema de roteamento
-    char *rota_login = strstr(buffer, "GET/login");
-    char *rota_cadastro = strstr(buffer, "POST/usuarios");
-    bool rota_buscar_usuarios = strcmp(buffer, "GET/usuarios") == 0;
-
-    if (rota_buscar_usuarios)
-    {
-      buscar_usuarios_controller(buffer);
-    }
-
-    if (rota_login)
-    {
-      login_usuario_controller(buffer);
-    }
-
-    if (rota_cadastro)
-    {
-      criar_usuario_controller(buffer);
-    }
-    // fim do sistema de roteamento
+    router(buffer);
 
     printf("Server: %s\n", buffer);
     send(client_sock, buffer, strlen(buffer), 0);

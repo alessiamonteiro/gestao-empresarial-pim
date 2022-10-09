@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../headers.h"
 
-struct Criar_usuario_model criar_usuario_repository(char nome[21], char senha[21], int id)
+struct Criar_usuario_model criar_usuario_repository(char nome[22], char senha[22], int id)
 {
     struct Criar_usuario_model model = {0, "", ""};
     FILE *txt_usuarios;

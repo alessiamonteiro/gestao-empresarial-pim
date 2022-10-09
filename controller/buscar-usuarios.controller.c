@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
 #include "../headers.h"
 
 void mapear_resposta(char buffer[1024], struct Buscar_usuarios_model model);
@@ -14,7 +9,7 @@ void buscar_usuarios_controller(char buffer[1024])
 }
 
 void mapear_resposta(char buffer[1024], struct Buscar_usuarios_model model) {
-    char quantidade_usuarios[21];
+    char quantidade_usuarios[22];
     char erro_repository[2];
 
     sprintf(erro_repository, "%d", model.erro);

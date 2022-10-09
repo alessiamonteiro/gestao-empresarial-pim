@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
 #include "../headers.h"
 
 void mapear_criar_usuario_response(char buffer[1024], struct Criar_usuario_model model);
@@ -11,8 +6,8 @@ void criar_usuario_controller(char buffer[1024])
 {
     int coluna = 1;
     int deve_adicionar = 0;
-    char usuario[21] = "";
-    char senha[21] = "";
+    char usuario[22] = "";
+    char senha[22] = "";
 
     // entrypoint log
     puts("RECEBI O CADASTRO");

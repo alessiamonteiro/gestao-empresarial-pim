@@ -7,12 +7,16 @@
  * This is a function declaration.
  * It tells the compiler that the function exists somewhere.
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 
 struct Usuario
 {
     char id[5];
-    char usuario[21];
-    char senha[21];
+    char usuario[22];
+    char senha[22];
 };
 
 struct Buscar_usuarios_model
@@ -32,21 +36,21 @@ struct Criar_usuario_model
 
 struct Buscar_usuarios_model buscar_usuarios_repository();
 
-struct Criar_usuario_model criar_usuario_repository(char[21], char[21], int);
+struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
 
-struct Criar_usuario_model criar_usuario_usecase(char[21], char[21]);
+struct Criar_usuario_model criar_usuario_usecase(char[22], char[22]);
 
 void criar_usuario_controller(char buffer[1024]);
 
-struct Criar_usuario_model criar_usuario_service(char[21], char[21]);
+struct Criar_usuario_model criar_usuario_service(char[22], char[22]);
 
 struct Login_usuario
 {
-    char usuario[21];
-    char senha[21];
+    char usuario[22];
+    char senha[22];
 };
 
-struct Login_usuario_model login_usuario_usecase(char[21], char[21]);
+struct Login_usuario_model login_usuario_usecase(char[22], char[22]);
 
 struct Login_usuario_model
 {
@@ -65,6 +69,18 @@ struct Buscar_usuarios_model buscar_usuarios_service();
 
 struct Buscar_usuarios_model buscar_usuarios_usecase();
 
-struct Login_usuario_model login_usuario_service(char[21], char[21]);
+struct Login_usuario_model login_usuario_service(char[22], char[22]);
+
+void router(char buffer[1024]);
+
+void menu_page();
+void login_page();
+void cadastro_page();
+void home_page();
+void buscar_usuarios_page();
+void perfil_page();
+
+char usuario_logado[22];
+char senha_usuario_logado[22];
 
 #endif /* HEADERS_DOT_H */
