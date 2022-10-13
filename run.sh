@@ -1,7 +1,6 @@
 gcc -Wall main.c \
-./repository/buscar-usuarios.repository.c \
-./repository/criar-usuario.repository.c \
-./usecase/criar-usuario.usecase.c \
+./repository/criar-funcionario.repository.c \
+./repository/buscar-funcionarios.repository.c \
 ./service/buscar-usuarios.service.c \
 ./service/login-usuario.service.c \
 ./service/criar-usuario.service.c \
@@ -11,6 +10,8 @@ gcc -Wall main.c \
 ./pages/perfil.page.c \
 ./pages/home.page.c \
 ./pages/buscar-usuarios.page.c \
+./pages/buscar-funcionarios.page.c \
+./utils/time.utils.c \
 ./client/socket-client.c -o start
 
 ./start

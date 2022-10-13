@@ -19,6 +19,10 @@ void home_page() {
         break;
 
     case 3:
+        buscar_funcionarios_page();
+        break;
+
+    case 4:
         menu_page();
         break;
 

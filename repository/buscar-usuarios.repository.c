@@ -1,8 +1,8 @@
 #include "../headers.h"
 
-#define COLUNA_ID 1
-#define COLUNA_USUARIO 2
-#define COLUNA_SENHA 3
+const int COLUNA_ID = 1;
+const int COLUNA_USUARIO = 2;
+const int COLUNA_SENHA = 3;
 
 struct Usuario usuarios[] = {};
 
@@ -28,7 +28,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
 
     if (textfile == NULL)
     {
-        repository_retorno.erro = 1;
+        repository_retorno.erro = true;
         repository_retorno.mensagem = "[ERRO] buscar_usuarios_repository";
         repository_retorno.quantidade_usuarios = 0;
         repository_retorno.usuarios = usuarios;

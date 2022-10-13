@@ -11,6 +11,22 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <time.h>
+
+struct Funcionario
+{
+    int id;
+    char nome[150];
+    char cpf[13];
+    char rg[13];
+    int cargo;
+    int salario;
+    int possui_ferias;
+    bool esta_de_ferias;
+    time_t data_inicio;
+    time_t data_inicio_contagem_ferias;
+    time_t validade_ferias;
+};
 
 struct Usuario
 {
@@ -27,6 +43,14 @@ struct Buscar_usuarios_model
     struct Usuario * usuarios;
 };
 
+struct Buscar_funcionarios_model
+{
+    int erro;
+    char * mensagem;
+    int quantidade_funcionarios;
+    struct Funcionario * funcionarios;
+};
+
 struct Criar_usuario_model 
 {
     int erro;
@@ -34,7 +58,18 @@ struct Criar_usuario_model
     char * usuario;
 };
 
+struct Criar_funcionario_model 
+{
+    int erro;
+    char * mensagem;
+    char * nome_funcionario;
+};
+
+struct Criar_funcionario_model criar_funcionario_repository(int, struct Funcionario);
+
 struct Buscar_usuarios_model buscar_usuarios_repository();
+
+struct Buscar_funcionarios_model buscar_funcionarios_repository();
 
 struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
 
@@ -78,7 +113,10 @@ void login_page();
 void cadastro_page();
 void home_page();
 void buscar_usuarios_page();
+void buscar_funcionarios_page();
 void perfil_page();
+
+const char * time_to_string(time_t timestamp);
 
 char usuario_logado[22];
 char senha_usuario_logado[22];
