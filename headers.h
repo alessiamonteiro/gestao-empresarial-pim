@@ -35,6 +35,11 @@ struct Usuario
     char senha[22];
 };
 
+struct Cargo{
+    int id;
+    char cargo[50];
+};
+
 struct Buscar_usuarios_model
 {   
     int erro;
@@ -49,6 +54,14 @@ struct Buscar_funcionarios_model
     char * mensagem;
     int quantidade_funcionarios;
     struct Funcionario * funcionarios;
+};
+
+struct Buscar_cargos_model
+{   
+    int erro;
+    char * mensagem;
+    int quantidade_cargos;
+    struct Cargo * cargos;
 };
 
 struct Criar_usuario_model 
@@ -68,6 +81,8 @@ struct Criar_funcionario_model
 struct Criar_funcionario_model criar_funcionario_repository(int, struct Funcionario);
 
 struct Buscar_usuarios_model buscar_usuarios_repository();
+
+struct Buscar_cargos_model buscar_cargos_repository();
 
 struct Buscar_funcionarios_model buscar_funcionarios_repository();
 

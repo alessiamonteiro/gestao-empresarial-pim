@@ -1,0 +1,71 @@
+#include "../headers.h"
+
+struct Buscar_cargos_model buscar_cargos_repository()
+{
+    const int COLUNA_ID = 1;
+    const int COLUNA_CARGO = 2;
+
+    int coluna = 1;
+    int contador_registros = 0;
+
+    char id[10] = "";
+    char cargo[50] = "";
+    char ch;
+
+    struct Cargo cargos[50] = {};
+
+    struct Buscar_cargos_model cargos_model = {};
+
+    FILE *cargosfile;
+
+        cargosfile = fopen("cargos.txt", "r");
+
+    if (cargosfile == NULL)
+    {
+        cargos_model.erro = true;
+        cargos_model.mensagem = "[ERRO] buscar_cargos_repository";
+        cargos_model.quantidade_cargos = 0;
+        cargos_model.cargos = cargos;
+        return cargos_model;
+    }
+
+    while ((ch = fgetc(cargosfile)) != EOF)
+    {
+
+        if (ch == '\n')
+        {
+            if (coluna == COLUNA_CARGO)
+            {
+                strcpy(cargos[contador_registros].cargo, cargo);
+            }
+
+            contador_registros += 1;
+            coluna = COLUNA_ID;
+            strcpy(id, "");
+            strcpy(cargo, "");
+        }
+
+        if (ch == ',' && coluna == COLUNA_ID)
+        {
+            coluna += 1;
+            cargos[contador_registros].id = atoi(id);
+            continue;
+        }
+
+        if (coluna == COLUNA_ID)
+        {
+            strncat(id, &ch, 1);
+        }
+
+        if (coluna == COLUNA_CARGO)
+        {
+            strncat(cargo, &ch, 1);
+        }
+    }
+
+    cargos_model.erro = 0;
+    cargos_model.mensagem = "[OK] buscar_cargos_repository";
+    cargos_model.quantidade_cargos = contador_registros;
+    cargos_model.cargos = cargos;
+    return cargos_model;
+}
