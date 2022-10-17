@@ -49,7 +49,7 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
         {
             if (coluna == COLUNA_VALIDADE_FERIAS)
             {
-                funcionarios[contador_registros].validade_ferias = atoi(validade_ferias);
+                funcionarios[contador_registros].validade_ferias = atol(validade_ferias);
             }
 
             contador_registros += 1;
@@ -117,14 +117,14 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
         if (ch == ',' && coluna == COLUNA_DATA_INICIO)
         {
             coluna += 1;
-            funcionarios[contador_registros].data_inicio = atoi(data_inicio);
+            funcionarios[contador_registros].data_inicio = atol(data_inicio);
             continue;
         }
 
         if (ch == ',' && coluna == COLUNA_DATA_INICIO_CONTAGEM_FERIAS)
         {
             coluna += 1;
-            funcionarios[contador_registros].data_inicio_contagem_ferias = atoi(data_inicio_contagem_ferias);
+            funcionarios[contador_registros].data_inicio_contagem_ferias = atol(data_inicio_contagem_ferias);
             continue;
         }
 

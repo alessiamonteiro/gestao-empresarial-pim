@@ -6,7 +6,7 @@ void buscar_funcionarios_page() {
 
     int acao;
 
-    struct Buscar_funcionarios_model model = buscar_funcionarios_repository();
+    struct Buscar_funcionarios_model model = buscar_funcionarios_service();
 
     puts("\n\nlista de funcionarios: \n");
 

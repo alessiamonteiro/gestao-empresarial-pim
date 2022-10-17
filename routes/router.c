@@ -2,8 +2,10 @@
 
 void router(char buffer[1024]) {
     char *rota_login = strstr(buffer, "GET/login");
-    char *rota_cadastro = strstr(buffer, "POST/usuarios");
+    char *rota_criar_usuario = strstr(buffer, "POST/usuarios");
+    char *rota_criar_funcionario = strstr(buffer, "POST/funcionarios");
     bool rota_buscar_usuarios = strcmp(buffer, "GET/usuarios") == 0;
+    bool rota_buscar_funcionarios = strcmp(buffer, "GET/funcionarios") == 0;
 
     if (rota_buscar_usuarios)
     {
@@ -15,8 +17,18 @@ void router(char buffer[1024]) {
       login_usuario_controller(buffer);
     }
 
-    if (rota_cadastro)
+    if (rota_criar_usuario)
     {
       criar_usuario_controller(buffer);
+    }
+
+    if (rota_buscar_funcionarios)
+    {
+      buscar_funcionarios_controller(buffer);
+    }
+
+    if (rota_criar_funcionario)
+    {
+      criar_funcionario_controller(buffer);
     }
 }

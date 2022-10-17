@@ -78,7 +78,9 @@ struct Criar_funcionario_model
     char * nome_funcionario;
 };
 
-struct Criar_funcionario_model criar_funcionario_repository(int, struct Funcionario);
+struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario);
+
+struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
 
 struct Buscar_usuarios_model buscar_usuarios_repository();
 
@@ -92,7 +94,11 @@ struct Criar_usuario_model criar_usuario_usecase(char[22], char[22]);
 
 void criar_usuario_controller(char buffer[1024]);
 
+void criar_funcionario_controller(char buffer[1024]);
+
 struct Criar_usuario_model criar_usuario_service(char[22], char[22]);
+
+struct Criar_funcionario_model criar_funcionario_service(struct Funcionario funcionario);
 
 struct Login_usuario
 {
@@ -115,9 +121,15 @@ void buscar_usuarios_controller(char[1024]);
 
 void login_usuario_controller(char[1024]);
 
+void buscar_funcionarios_controller(char buffer[1024]);
+
+struct Buscar_funcionarios_model buscar_funcionarios_service();
+
 struct Buscar_usuarios_model buscar_usuarios_service();
 
 struct Buscar_usuarios_model buscar_usuarios_usecase();
+
+struct Buscar_funcionarios_model buscar_funcionarios_usecase();
 
 struct Login_usuario_model login_usuario_service(char[22], char[22]);
 
@@ -130,8 +142,10 @@ void home_page();
 void buscar_usuarios_page();
 void buscar_funcionarios_page();
 void perfil_page();
+void cadastro_funcionario_page();
 
 const char * time_to_string(time_t timestamp);
+time_t create_time(int day, int month, int year);
 
 char usuario_logado[22];
 char senha_usuario_logado[22];

@@ -21,8 +21,12 @@ void home_page() {
     case 3:
         buscar_funcionarios_page();
         break;
-
+    
     case 4:
+        cadastro_funcionario_page();
+        break;
+
+    case 5:
         menu_page();
         break;
 

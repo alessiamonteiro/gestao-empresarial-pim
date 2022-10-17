@@ -25,29 +25,7 @@ void create_time(void);
 //     return EXIT_SUCCESS;
 // }
 
-void create_time(void)
-{
-    // Create and initialize a tm struct.
-    struct tm st = {.tm_sec = 30,
-                    .tm_min = 15,
-                    .tm_hour = 9,
-                    .tm_mday = 12,
-                    .tm_mon = 7 - 1, // 0-based so 6 is July
-                    .tm_year = 2019 - 1900, // 1900 + or -
-                    .tm_isdst = 1};
 
-    // Create a time_t from a tm struct.
-    // This also sets tm_wday and tm_yday.
-    time_t t = mktime(&st);
-
-    printf("The value of the time_t variable is:\n%ld\n\n", t);
-
-    printf("which represents:\n%s\n", ctime(&t));
-
-    puts("The mkdir function set these members of the tm struct:");
-    printf("tm_wday  %d\t0-based from Sunday\n", st.tm_wday);
-    printf("tm_yday  %d\t0-based\n", st.tm_yday);
-}
 
 void current_time(void)
 {

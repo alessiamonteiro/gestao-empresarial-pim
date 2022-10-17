@@ -1,13 +1,13 @@
 gcc -Wall main.c \
-./repository/criar-funcionario.repository.c \
-./repository/buscar-funcionarios.repository.c \
-./repository/buscar-cargos.repository.c \
 ./service/buscar-usuarios.service.c \
+./service/buscar-funcionarios.service.c \
 ./service/login-usuario.service.c \
 ./service/criar-usuario.service.c \
+./service/criar-funcionario.service.c \
 ./pages/menu.page.c \
 ./pages/login.page.c \
 ./pages/cadastro.page.c \
+./pages/cadastro-funcionario.page.c \
 ./pages/perfil.page.c \
 ./pages/home.page.c \
 ./pages/buscar-usuarios.page.c \

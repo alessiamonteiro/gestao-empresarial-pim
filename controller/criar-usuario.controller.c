@@ -1,16 +1,17 @@
 #include "../headers.h"
 
-void mapear_criar_usuario_response(char buffer[1024], struct Criar_usuario_model model);
 
 void criar_usuario_controller(char buffer[1024])
 {
+    void mapear_criar_usuario_response(char buffer[1024], struct Criar_usuario_model model);
+    
     int coluna = 1;
     int deve_adicionar = 0;
     char usuario[22] = "";
     char senha[22] = "";
 
     // entrypoint log
-    puts("RECEBI O CADASTRO");
+    puts("ENTRYPOINT criar_usuario_controller");
     puts(buffer);
 
     // obter parametros passados na mensagem

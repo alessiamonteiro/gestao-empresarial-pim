@@ -21,15 +21,16 @@ void cadastro_page()
 
     const int VERDADEIRO = 0;
 
-    // struct Funcionario x = {0, "João Pedro", "01236547898", "012365478", 1, 2000, 0, 0, 1562930130, 1562930130, 1562930130};    
-    // struct Criar_funcionario_model z = criar_funcionario_repository(1, x);
+    struct Funcionario x = {0, "João Pedro", "01236547898", "012365478", 1, 2000, 0, 0, 1562930130, 1562930130, 1562930130};    
+    struct Criar_funcionario_model z = criar_funcionario_service(x);
 
-    struct Buscar_cargos_model X= buscar_cargos_repository();
-    for (int i = 0; i < X.quantidade_cargos ; i++)
-    {
-        puts(X.cargos[i].cargo);
-    }
-    
+    puts(z.mensagem);
+
+    // struct Buscar_cargos_model X= buscar_cargos_repository();
+    // for (int i = 0; i < X.quantidade_cargos ; i++)
+    // {
+    //     puts(X.cargos[i].cargo);
+    // }
 
     printf(TEXTO_TITULO_CADASTRO);
 
