@@ -23,9 +23,6 @@ struct Funcionario
     int salario;
     int possui_ferias;
     bool esta_de_ferias;
-    time_t data_inicio;
-    time_t data_inicio_contagem_ferias;
-    time_t validade_ferias;
 };
 
 struct Usuario
@@ -144,10 +141,21 @@ void buscar_funcionarios_page();
 void perfil_page();
 void cadastro_funcionario_page();
 
-const char * time_to_string(time_t timestamp);
-time_t create_time(int day, int month, int year);
-
 char usuario_logado[22];
 char senha_usuario_logado[22];
+
+// BUSCAR FUNCIONARIOS SERVICE
+#define COLUNA_ERRO 1
+#define COLUNA_MENSAGEM 2
+#define COLUNA_QUANTIDADE_REGISTROS 3
+#define COLUNA_FUNCIONARIO 4
+#define COLUNA_ID 1
+#define COLUNA_NOME 2
+#define COLUNA_CPF 3
+#define COLUNA_RG 4
+#define COLUNA_CARGO 5
+#define COLUNA_SALARIO 6
+#define COLUNA_POSSUI_FERIAS 7
+#define COLUNA_ESTA_DE_FERIAS 8
 
 #endif /* HEADERS_DOT_H */

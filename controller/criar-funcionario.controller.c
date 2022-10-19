@@ -9,9 +9,6 @@ void criar_funcionario_controller(char buffer[1024])
     const int COLUNA_RG = 3;
     const int COLUNA_CARGO = 4;
     const int COLUNA_SALARIO = 5;
-    const int COLUNA_DATA_INICIO = 6;
-    const int COLUNA_DATA_INICIO_CONTAGEM_FERIAS = 7;
-    const int COLUNA_VALIDADE_FERIAS = 8;
 
     int coluna = COLUNA_NOME;
     bool deve_adicionar = false;
@@ -21,9 +18,6 @@ void criar_funcionario_controller(char buffer[1024])
     char rg[15] = "";
     char cargo[5] = "";
     char salario[15] = "";
-    char data_inicio[64] = "";
-    char data_inicio_contagem_ferias[64] = "";
-    char validade_ferias[64] = "";
 
     struct Funcionario funcionario = {};
 
@@ -70,21 +64,6 @@ void criar_funcionario_controller(char buffer[1024])
         {
             strncat(salario, &buffer[i], 1);
         }
-
-        if (deve_adicionar == true && coluna == COLUNA_DATA_INICIO)
-        {
-            strncat(data_inicio, &buffer[i], 1);
-        }
-
-        if (deve_adicionar == true && coluna == COLUNA_DATA_INICIO_CONTAGEM_FERIAS)
-        {
-            strncat(data_inicio_contagem_ferias, &buffer[i], 1);
-        }
-
-        if (deve_adicionar == true && coluna == COLUNA_VALIDADE_FERIAS)
-        {
-            strncat(validade_ferias, &buffer[i], 1);
-        }
     }
 
     //montar struct funcionario
@@ -93,9 +72,6 @@ void criar_funcionario_controller(char buffer[1024])
     strcpy(funcionario.rg, rg);
     funcionario.cargo = atoi(cargo);
     funcionario.salario = atoi(salario);
-    funcionario.data_inicio = atol(data_inicio);
-    funcionario.data_inicio_contagem_ferias = atol(data_inicio_contagem_ferias);
-    funcionario.validade_ferias = atol(validade_ferias);
     //montar struct funcionario
 
     bzero(buffer, 1024);

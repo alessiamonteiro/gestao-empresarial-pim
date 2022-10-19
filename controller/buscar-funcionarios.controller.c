@@ -34,9 +34,6 @@ void mapear_buscar_funcionarios_controller(char buffer[1024], struct Buscar_func
     for (int i = 0; i < model.quantidade_funcionarios; i++)
     {
         char id[10] = "";
-        char data_inicio[65] = "";
-        char data_inicio_contagem_ferias[65] = "";
-        char validade_ferias[65] = "";
         char possui_ferias[2] = "";
         char esta_de_ferias[2] = "";
         char salario[15] = "";
@@ -69,18 +66,6 @@ void mapear_buscar_funcionarios_controller(char buffer[1024], struct Buscar_func
 
         sprintf(esta_de_ferias, "%d", model.funcionarios[i].esta_de_ferias);
         strcat(buffer, esta_de_ferias);
-        strcat(buffer, ",");
-
-        sprintf(data_inicio, "%ld", model.funcionarios[i].data_inicio);
-        strcat(buffer, data_inicio);
-        strcat(buffer, ",");
-
-        sprintf(data_inicio_contagem_ferias, "%ld", model.funcionarios[i].data_inicio_contagem_ferias);
-        strcat(buffer, data_inicio_contagem_ferias);
-        strcat(buffer, ",");
-
-        sprintf(validade_ferias, "%ld", model.funcionarios[i].validade_ferias);
-        strcat(buffer, validade_ferias);
         strcat(buffer, ";");
     }
 

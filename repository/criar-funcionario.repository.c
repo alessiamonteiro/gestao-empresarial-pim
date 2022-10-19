@@ -15,7 +15,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
         return model;
     }
 
-    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%i,%i,%i,%li,%li,%li\n",
+    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%i,%i,%i\n",
             funcionario.id,
             funcionario.nome,
             funcionario.cpf,
@@ -23,10 +23,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
             funcionario.cargo,
             funcionario.salario,
             funcionario.possui_ferias,
-            funcionario.esta_de_ferias,
-            funcionario.data_inicio,
-            funcionario.data_inicio_contagem_ferias,
-            funcionario.validade_ferias);
+            funcionario.esta_de_ferias);
 
     fclose(txt_funcionarios);
 

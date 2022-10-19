@@ -21,7 +21,7 @@ void cadastro_page()
 
     const int VERDADEIRO = 0;
 
-    struct Funcionario x = {0, "João Pedro", "01236547898", "012365478", 1, 2000, 0, 0, 1562930130, 1562930130, 1562930130};    
+    struct Funcionario x = {0, "João Pedro", "01236547898", "012365478", 1, 2000, 0, 0};    
     struct Criar_funcionario_model z = criar_funcionario_service(x);
 
     puts(z.mensagem);
