@@ -19,7 +19,7 @@ struct Criar_usuario_model criar_usuario_service(char usuario[22], char senha[22
 
 struct Criar_usuario_model mapear_criar_usuario_model(char buffer[1024]) {
     int coluna = 1;
-    char erro[2] = "0";
+    char erro[2];
     char mensagem[151];
     char usuario[22];
 
@@ -29,6 +29,10 @@ struct Criar_usuario_model mapear_criar_usuario_model(char buffer[1024]) {
         if (buffer[i] == ';') {
             coluna += 1;
             continue;
+        }
+
+        if (coluna == 1) {
+            strncat(erro, &buffer[i], 1);
         }
 
         // mensagem

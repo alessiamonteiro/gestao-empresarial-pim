@@ -18,19 +18,7 @@ void cadastro_page()
     char user[22];
     char senha_usuario[22];
     char confirmacao_senha[22];
-
     const int VERDADEIRO = 0;
-
-    struct Funcionario x = {0, "João Pedro", "01236547898", "012365478", 1, 2000, 0, 0};    
-    struct Criar_funcionario_model z = criar_funcionario_service(x);
-
-    puts(z.mensagem);
-
-    // struct Buscar_cargos_model X= buscar_cargos_repository();
-    // for (int i = 0; i < X.quantidade_cargos ; i++)
-    // {
-    //     puts(X.cargos[i].cargo);
-    // }
 
     printf(TEXTO_TITULO_CADASTRO);
 
@@ -77,6 +65,7 @@ void cadastro_page()
     puts("\n");
     puts(model.mensagem);
     system("sleep 03");
+    system("clear");
 
     if (model.erro == true)
     {

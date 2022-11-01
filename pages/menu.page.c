@@ -1,7 +1,8 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void menu_page() {
+void menu_page()
+{
     int acao;
     system("clear");
     puts(TEXTO_BEM_VINDO);

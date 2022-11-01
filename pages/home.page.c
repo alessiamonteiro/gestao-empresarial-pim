@@ -1,12 +1,16 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void home_page() {
+void home_page()
+{
     int acao;
     system("clear");
-    printf(TEXTO_TITULO_HOME);
+
+    puts(TEXTO_TITULO_HOME);
     puts(TEXTO_OPCOES_HOME);
     scanf("%i", &acao);
+
+    system("clear");
 
     switch (acao)
     {
@@ -21,7 +25,7 @@ void home_page() {
     case 3:
         buscar_funcionarios_page();
         break;
-    
+
     case 4:
         cadastro_funcionario_page();
         break;

@@ -145,17 +145,6 @@ char usuario_logado[22];
 char senha_usuario_logado[22];
 
 // BUSCAR FUNCIONARIOS SERVICE
-#define COLUNA_ERRO 1
-#define COLUNA_MENSAGEM 2
-#define COLUNA_QUANTIDADE_REGISTROS 3
-#define COLUNA_FUNCIONARIO 4
-#define COLUNA_ID 1
-#define COLUNA_NOME 2
-#define COLUNA_CPF 3
-#define COLUNA_RG 4
-#define COLUNA_CARGO 5
-#define COLUNA_SALARIO 6
-#define COLUNA_POSSUI_FERIAS 7
-#define COLUNA_ESTA_DE_FERIAS 8
+
 
 #endif /* HEADERS_DOT_H */

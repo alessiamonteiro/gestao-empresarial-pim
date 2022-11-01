@@ -1,7 +1,8 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void buscar_usuarios_page() {
+void buscar_usuarios_page()
+{
     system("clear");
 
     struct Buscar_usuarios_model model = buscar_usuarios_service();
@@ -16,7 +17,7 @@ void buscar_usuarios_page() {
     }
 
     int acao;
-    puts("\n\nDigite 1 para voltar para a home");
+    puts("\n\nDigite 1 e pressione ENTER para voltar");
     scanf("%i", &acao);
 
     switch (acao)

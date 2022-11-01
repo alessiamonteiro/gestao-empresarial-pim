@@ -12,6 +12,12 @@ struct Buscar_funcionarios_model buscar_funcionarios_service()
 
 struct Buscar_funcionarios_model mapear_buscar_funcionarios_service(char response[1024])
 {
+    const int COLUNA_ID = 1;
+    const int COLUNA_ERRO = 1;
+    const int COLUNA_MENSAGEM = 2;
+    const int COLUNA_QUANTIDADE_REGISTROS = 3;
+    const int COLUNA_FUNCIONARIO = 4;
+
     struct Funcionario funcionarios[500] = {};
     struct Buscar_funcionarios_model model = {};
 
@@ -42,11 +48,11 @@ struct Buscar_funcionarios_model mapear_buscar_funcionarios_service(char respons
         {
             switch (coluna)
             {
-            case COLUNA_MENSAGEM:
+            case 2:
                 model.mensagem = mensagem;
                 break;
 
-            case COLUNA_QUANTIDADE_REGISTROS:
+            case 3:
                 model.quantidade_funcionarios = atoi(quantidade_funcionarios_char);
                 break;
 
@@ -86,27 +92,27 @@ struct Buscar_funcionarios_model mapear_buscar_funcionarios_service(char respons
             {
                 switch (coluna_funcionario)
                 {
-                case COLUNA_ID:
+                case 1:
                     funcionarios[contador_registros].id = atoi(id);
                     break;
 
-                case COLUNA_NOME:
+                case 2:
                     strcpy(funcionarios[contador_registros].nome, nome);
                     break;
 
-                case COLUNA_CPF:
+                case 3:
                     strcpy(funcionarios[contador_registros].cpf, cpf);
                     break;
 
-                case COLUNA_RG:
+                case 4:
                     strcpy(funcionarios[contador_registros].rg, rg);
                     break;
 
-                case COLUNA_CARGO:
+                case 5:
                     funcionarios[contador_registros].cargo = atoi(cargo);
                     break;
 
-                case COLUNA_SALARIO:
+                case 6:
                     funcionarios[contador_registros].salario = atoi(salario);
                     break;
 
@@ -120,35 +126,35 @@ struct Buscar_funcionarios_model mapear_buscar_funcionarios_service(char respons
 
             switch (coluna_funcionario)
             {
-            case COLUNA_ID:
+            case 1:
                 strncat(id, &response[i], 1);
                 break;
 
-            case COLUNA_NOME:
+            case 2:
                 strncat(nome, &response[i], 1);
                 break;
 
-            case COLUNA_CPF:
+            case 3:
                 strncat(cpf, &response[i], 1);
                 break;
 
-            case COLUNA_RG:
+            case 4:
                 strncat(rg, &response[i], 1);
                 break;
 
-            case COLUNA_CARGO:
+            case 5:
                 strncat(cargo, &response[i], 1);
                 break;
 
-            case COLUNA_SALARIO:
+            case 6:
                 strncat(salario, &response[i], 1);
                 break;
 
-            case COLUNA_POSSUI_FERIAS:
+            case 7:
                 funcionarios[contador_registros].possui_ferias = atoi(&response[i]);
                 continue;
 
-            case COLUNA_ESTA_DE_FERIAS:
+            case 8:
                 coluna_funcionario = COLUNA_ID;
                 funcionarios[contador_registros].esta_de_ferias = atoi(&response[i]);
                 continue;
