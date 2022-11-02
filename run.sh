@@ -13,6 +13,10 @@ gcc -Wall main.c \
 ./pages/buscar-usuarios.page.c \
 ./pages/buscar-funcionarios.page.c \
 ./utils/time.utils.c \
+./repository/criar-relatorio-funcionarios.repository.c \
+./repository/buscar-funcionarios.repository.c \
+./repository/buscar-cargos.repository.c \
+./usecase/criar-relatorio-funcionarios.usecase.c \
 ./client/socket-client.c -o start 
 
 ./start

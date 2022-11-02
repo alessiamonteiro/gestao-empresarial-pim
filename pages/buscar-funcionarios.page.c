@@ -12,7 +12,7 @@ void buscar_funcionarios_page() {
 
     for (int i = 0; i < model.quantidade_funcionarios; i++)
     {
-        printf(" id: %i\n nome: %s\n cpf: %s\n cargo: %i\n salario: %i\n possuiFerias: %i\n estaDeFerias: %i\n\n\n",
+        printf(" id: %i\n nome: %s\n cpf: %s\n cargo: %i\n salario: %le\n possuiFerias: %i\n estaDeFerias: %i\n\n\n",
                model.funcionarios[i].id,
                model.funcionarios[i].nome,
                model.funcionarios[i].cpf,

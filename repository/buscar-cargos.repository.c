@@ -12,8 +12,6 @@ struct Buscar_cargos_model buscar_cargos_repository()
     char cargo[50] = "";
     char ch;
 
-    struct Cargo cargos[50] = {};
-
     struct Buscar_cargos_model cargos_model = {};
 
     FILE *cargosfile;
@@ -25,7 +23,6 @@ struct Buscar_cargos_model buscar_cargos_repository()
         cargos_model.erro = true;
         cargos_model.mensagem = "[ERRO] buscar_cargos_repository";
         cargos_model.quantidade_cargos = 0;
-        cargos_model.cargos = cargos;
         return cargos_model;
     }
 
@@ -36,7 +33,7 @@ struct Buscar_cargos_model buscar_cargos_repository()
         {
             if (coluna == COLUNA_CARGO)
             {
-                strcpy(cargos[contador_registros].cargo, cargo);
+                strcpy(cargos_model.cargos[contador_registros].cargo, cargo);
             }
 
             contador_registros += 1;
@@ -48,7 +45,7 @@ struct Buscar_cargos_model buscar_cargos_repository()
         if (ch == ',' && coluna == COLUNA_ID)
         {
             coluna += 1;
-            cargos[contador_registros].id = atoi(id);
+            cargos_model.cargos[contador_registros].id = atoi(id);
             continue;
         }
 
@@ -66,6 +63,5 @@ struct Buscar_cargos_model buscar_cargos_repository()
     cargos_model.erro = 0;
     cargos_model.mensagem = "[OK] buscar_cargos_repository";
     cargos_model.quantidade_cargos = contador_registros;
-    cargos_model.cargos = cargos;
     return cargos_model;
 }

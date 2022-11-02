@@ -15,7 +15,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
         return model;
     }
 
-    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%i,%i,%i\n",
+    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%le,%i,%i\n",
             funcionario.id,
             funcionario.nome,
             funcionario.cpf,

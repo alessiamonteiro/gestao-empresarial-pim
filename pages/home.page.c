@@ -31,6 +31,10 @@ void home_page()
         break;
 
     case 5:
+        criar_relatorio_funcionarios_usecase();
+        break;
+
+    case 6:
         menu_page();
         break;
 

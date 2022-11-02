@@ -8,12 +8,12 @@ struct Criar_funcionario_model criar_funcionario_service(struct Funcionario func
     char url[500] = "POST/funcionarios";
 
     char cargo[10];
-    char salario[10];
+    char salario[20];
     char possui_ferias[5];
     char esta_de_ferias[2] = "";
 
     sprintf(cargo, "%d", funcionario.cargo);
-    sprintf(salario, "%d", funcionario.salario);
+    sprintf(salario, "%le", funcionario.salario);
     sprintf(possui_ferias, "%d", funcionario.possui_ferias);
     sprintf(esta_de_ferias, "%d", funcionario.esta_de_ferias);
 

@@ -23,7 +23,7 @@ void cadastro_funcionario_page()
     scanf("%d", &funcionario.cargo);
 
     puts("\n\n Salario:");
-    scanf("%d", &funcionario.salario);
+    scanf("%le", &funcionario.salario);
 
     struct Criar_funcionario_model criar_funcionario_model = criar_funcionario_service(funcionario);
     puts(criar_funcionario_model.mensagem);
