@@ -12,7 +12,7 @@ void menu_page(bool erro)
         puts(TEXTO_OPCAO_INVALIDA);
     }
 
-    scanf("%c", &acao);
+    scanf("\n%c", &acao);
 
     switch (acao)
     {
