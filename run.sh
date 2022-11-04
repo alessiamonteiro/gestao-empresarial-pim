@@ -13,6 +13,7 @@ gcc -Wall main.c \
 ./pages/home.page.c \
 ./pages/buscar-usuarios.page.c \
 ./pages/buscar-funcionarios.page.c \
+./pages/relatorios.page.c \
 ./utils/time.utils.c \
 ./utils/montar-caminho-arquivo.utils.c \
 ./utils/delay.utils.c \

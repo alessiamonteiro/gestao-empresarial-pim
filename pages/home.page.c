@@ -9,8 +9,8 @@ void home_page(bool erro)
     puts(TEXTO_TITULO_HOME);
     puts(TEXTO_OPCOES_HOME);
 
-    if (erro == true) {
-        putchar(acao);
+    if (erro == true)
+    {
         puts(TEXTO_OPCAO_INVALIDA);
     }
 
@@ -35,10 +35,7 @@ void home_page(bool erro)
         break;
 
     case '5':
-        criar_relatorio_funcionarios_service();
-        system("./abrir-relatorios.sh");
-        scanf("%c", &acao);
-        home_page(false);
+        relatorios_page(false);
         break;
 
     case '6':

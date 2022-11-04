@@ -5,7 +5,7 @@ void menu_page(bool erro)
 {
     char acao;
     system("clear");
-    puts(TEXTO_BEM_VINDO);
+    puts(TEXTO_TITULO_MENU);
     puts(TEXTO_OPCOES_MENU);
 
     if (erro == true) {

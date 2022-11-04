@@ -163,7 +163,7 @@ void buscar_usuarios_page();
 void buscar_funcionarios_page();
 void perfil_page();
 void cadastro_funcionario_page();
-void relatorios_page();
+void relatorios_page(bool erro);
 
 char usuario_logado[22];
 char senha_usuario_logado[22];

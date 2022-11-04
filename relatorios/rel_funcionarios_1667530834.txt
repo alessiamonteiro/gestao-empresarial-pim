@@ -1,0 +1,20 @@
+------------------------ Relatório de Funcionários ------------------------
+
+Data: 4/11/2022 
+
+Total de funcionários: 2
+
+Despesa total com funcionarios: R$ 4000.00
+
+Todos os funcionários: 
+
+	Nome:  João Victor da Silva
+	Cargo: Gerente
+	Salario: R$ 2000.00
+	CPF: 012.345.678-91
+
+	Nome:  Luiz Henrique Ribeiro
+	Cargo: Estagiario
+	Salario: R$ 2000.00
+	CPF: 012.345.678-91
+
