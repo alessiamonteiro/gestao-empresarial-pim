@@ -56,7 +56,7 @@ void mapear_buscar_funcionarios_controller(char buffer[1024], struct Buscar_func
         strcat(buffer, cargo);
         strcat(buffer, ",");
 
-        sprintf(salario, "%le", model.funcionarios[i].salario);
+        sprintf(salario, "%.2f", model.funcionarios[i].salario);
         strcat(buffer, salario);
         strcat(buffer, ",");
 

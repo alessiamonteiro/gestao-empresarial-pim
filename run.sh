@@ -4,6 +4,7 @@ gcc -Wall main.c \
 ./service/login-usuario.service.c \
 ./service/criar-usuario.service.c \
 ./service/criar-funcionario.service.c \
+./service/criar-relatorio-funcionarios.service.c \
 ./pages/menu.page.c \
 ./pages/login.page.c \
 ./pages/cadastro.page.c \
@@ -13,10 +14,8 @@ gcc -Wall main.c \
 ./pages/buscar-usuarios.page.c \
 ./pages/buscar-funcionarios.page.c \
 ./utils/time.utils.c \
-./repository/criar-relatorio-funcionarios.repository.c \
-./repository/buscar-funcionarios.repository.c \
-./repository/buscar-cargos.repository.c \
-./usecase/criar-relatorio-funcionarios.usecase.c \
+./utils/montar-caminho-arquivo.utils.c \
+./utils/delay.utils.c \
 ./client/socket-client.c -o start 
 
 ./start

@@ -23,11 +23,11 @@ void buscar_usuarios_page()
     switch (acao)
     {
     case 1:
-        home_page();
+        home_page(false);
         break;
 
     default:
-        home_page();
+        home_page(false);
         // puts(TEXTO_OPCAO_INVALIDA);
         // menu();
         break;

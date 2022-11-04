@@ -13,7 +13,7 @@ struct Criar_funcionario_model criar_funcionario_service(struct Funcionario func
     char esta_de_ferias[2] = "";
 
     sprintf(cargo, "%d", funcionario.cargo);
-    sprintf(salario, "%le", funcionario.salario);
+    sprintf(salario, "%.2f", funcionario.salario);
     sprintf(possui_ferias, "%d", funcionario.possui_ferias);
     sprintf(esta_de_ferias, "%d", funcionario.esta_de_ferias);
 

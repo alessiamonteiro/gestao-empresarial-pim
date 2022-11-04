@@ -13,12 +13,12 @@ void perfil_page() {
     switch (acao)
     {
     case 1:
-        home_page();
+        home_page(false);
         break;
 
     default:
         puts(TEXTO_OPCAO_INVALIDA);
-        menu_page();
+        menu_page(false);
         break;
     }
 }

@@ -1,27 +1,31 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void menu_page()
+void menu_page(bool erro)
 {
-    int acao;
+    char acao;
     system("clear");
     puts(TEXTO_BEM_VINDO);
     puts(TEXTO_OPCOES_MENU);
-    scanf("%i", &acao);
+
+    if (erro == true) {
+        puts(TEXTO_OPCAO_INVALIDA);
+    }
+
+    scanf("%c", &acao);
 
     switch (acao)
     {
-    case 1:
+    case '1':
         login_page();
         break;
 
-    case 2:
+    case '2':
         cadastro_page();
         break;
 
     default:
-        puts(TEXTO_OPCAO_INVALIDA);
-        menu_page();
+        menu_page(true);
         break;
     }
 }

@@ -14,11 +14,13 @@ struct Buscar_cargos_model buscar_cargos_repository()
 
     struct Buscar_cargos_model cargos_model = {};
 
-    FILE *cargosfile;
+    char caminho_arquivo[150] = "";
+    montar_caminho_arquivo(caminho_arquivo, "/database/cargos.txt");
 
-        cargosfile = fopen("cargos.txt", "r");
+    FILE *txt_cargos;
+    txt_cargos = fopen(caminho_arquivo, "r");
 
-    if (cargosfile == NULL)
+    if (txt_cargos == NULL)
     {
         cargos_model.erro = true;
         cargos_model.mensagem = "[ERRO] buscar_cargos_repository";
@@ -26,7 +28,7 @@ struct Buscar_cargos_model buscar_cargos_repository()
         return cargos_model;
     }
 
-    while ((ch = fgetc(cargosfile)) != EOF)
+    while ((ch = fgetc(txt_cargos)) != EOF)
     {
 
         if (ch == '\n')

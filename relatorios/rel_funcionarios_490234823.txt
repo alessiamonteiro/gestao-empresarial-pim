@@ -1,22 +1,24 @@
 ------------------------ Relatório de Funcionários ------------------------
 
+Data: 03/11/2020 //implementar
+
 Total de funcionários: 50
 
-Despesa total com funcionarios: R$150.000
+Despesa total com funcionarios: R$ 150.000
 
 Todos os funcionários:
     
     Nome: João Pedro Gonçalves Manara (Está de Férias)
     Cargo: Gerente
-    Salário: R$2000
+    Salário: R$ 2000
     CPF: 405.837.158-51
 
     Nome: João Pedro Gonçalves Manara
     Cargo: Gerente
-    Salário: R$2000
+    Salário: R$ 2000
     CPF: 405.837.158-51
 
     Nome: João Pedro Gonçalves Manara
     Cargo: Gerente
-    Salário: R$2000
+    Salário: R$ 2000
     CPF: 405.837.158-51

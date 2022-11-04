@@ -1,4 +1,5 @@
 #include "../headers.h"
+#include "../constantes.h"
 
 struct Buscar_funcionarios_model buscar_funcionarios_repository()
 {
@@ -25,8 +26,11 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
     struct Buscar_funcionarios_model model = {};
     struct Funcionario funcionarios[500] = {};
 
+    char caminho_arquivo[150] = "";
+    montar_caminho_arquivo(caminho_arquivo, "/database/funcionarios.txt");
+
     FILE *txt_funcionarios;
-    txt_funcionarios = fopen("funcionarios.txt", "r");
+    txt_funcionarios = fopen(caminho_arquivo, "r");
 
     if (txt_funcionarios == NULL)
     {

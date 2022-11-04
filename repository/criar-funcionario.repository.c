@@ -1,11 +1,15 @@
 #include "../headers.h"
+#include "../constantes.h"
 
 struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario funcionario)
 {
     struct Criar_funcionario_model model = {0, "", ""};
 
+    char caminho_arquivo[150] = "";
+    montar_caminho_arquivo(caminho_arquivo, "/database/funcionarios.txt");
+
     FILE *txt_funcionarios;
-    txt_funcionarios = fopen("funcionarios.txt", "a");
+    txt_funcionarios = fopen(caminho_arquivo, "a");
 
     if (txt_funcionarios == NULL)
     {
@@ -15,7 +19,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
         return model;
     }
 
-    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%le,%i,%i\n",
+    fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%.2f,%i,%i\n",
             funcionario.id,
             funcionario.nome,
             funcionario.cpf,

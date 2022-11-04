@@ -1,4 +1,5 @@
 #include "../headers.h"
+#include "../constantes.h"
 
 const int COLUNA_ID = 1;
 const int COLUNA_USUARIO = 2;
@@ -6,7 +7,7 @@ const int COLUNA_SENHA = 3;
 
 struct Usuario usuarios[] = {};
 
-struct Buscar_usuarios_model repository_retorno= {
+struct Buscar_usuarios_model repository_retorno = {
     0,
     "",
     0,
@@ -14,8 +15,6 @@ struct Buscar_usuarios_model repository_retorno= {
 
 struct Buscar_usuarios_model buscar_usuarios_repository()
 {
-    FILE *textfile;
-
     char ch;
     char usuario[22] = "";
     char senha[22] = "";
@@ -24,9 +23,13 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
     int coluna = 1;
     int contador_registros = 0;
 
-    textfile = fopen("usuarios.txt", "r");
+    char caminho_arquivo[150] = "";
+    montar_caminho_arquivo(caminho_arquivo, "/database/usuarios.txt");
 
-    if (textfile == NULL)
+    FILE *txt_usuarios;
+    txt_usuarios = fopen(caminho_arquivo, "r");
+
+    if (txt_usuarios == NULL)
     {
         repository_retorno.erro = true;
         repository_retorno.mensagem = "[ERRO] buscar_usuarios_repository";
@@ -35,7 +38,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
         return repository_retorno;
     }
 
-    while ((ch = fgetc(textfile)) != EOF)
+    while ((ch = fgetc(txt_usuarios)) != EOF)
     {
         if (ch == '\n')
         {
@@ -43,7 +46,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
             {
                 strcpy(usuarios[contador_registros].senha, senha);
             }
-            
+
             contador_registros += 1;
             coluna = COLUNA_ID;
             strcpy(id, "");

@@ -8,10 +8,10 @@ void login_page() {
     system("clear");
     puts(TEXTO_TITULO_LOGIN);
 
-    puts("\nusuario: \n");
+    puts("\nusuario: ");
     scanf("%s", user);
 
-    puts("senha:\n");
+    puts("\nsenha: ");
     scanf("%s", senha_usuario);
 
     struct Login_usuario_model usecase_retorno = login_usuario_service(user, senha_usuario);
@@ -29,6 +29,6 @@ void login_page() {
 
     puts(usecase_retorno.mensagem);
     system("sleep 03");
-    home_page();
+    home_page(false);
     return;
 }

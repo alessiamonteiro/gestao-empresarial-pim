@@ -10,9 +10,10 @@ void buscar_funcionarios_page() {
 
     puts("\n\nlista de funcionarios: \n");
 
+    // formatar cpf
     for (int i = 0; i < model.quantidade_funcionarios; i++)
     {
-        printf(" id: %i\n nome: %s\n cpf: %s\n cargo: %i\n salario: %le\n possuiFerias: %i\n estaDeFerias: %i\n\n\n",
+        printf(" id: %i\n nome: %s\n cpf: %s\n cargo: %i\n salario: R$ %.2f\n possuiFerias: %i\n estaDeFerias: %i\n\n\n",
                model.funcionarios[i].id,
                model.funcionarios[i].nome,
                model.funcionarios[i].cpf,
@@ -29,11 +30,11 @@ void buscar_funcionarios_page() {
     switch (acao)
     {
     case 1:
-        home_page();
+        home_page(false);
         break;
 
     default:
-        home_page();
+        home_page(false);
         // puts(TEXTO_OPCAO_INVALIDA);
         // menu();
         break;

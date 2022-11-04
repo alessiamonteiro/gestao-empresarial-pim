@@ -22,7 +22,7 @@ struct Funcionario
     char cpf[13];
     char rg[13];
     int cargo;
-    double salario;
+    float salario;
     int possui_ferias;
     bool esta_de_ferias;
 };
@@ -77,6 +77,13 @@ struct Criar_funcionario_model
     char * nome_funcionario;
 };
 
+struct Criar_relatorio_model
+{
+    int erro;
+    char * mensagem;
+};
+
+
 struct Login_usuario
 {
     char usuario[22];
@@ -104,6 +111,8 @@ void criar_usuario_controller(char buffer[1024]);
 
 void criar_funcionario_controller(char buffer[1024]);
 
+void criar_relatorio_funcionarios_controller(char buffer[1024]);
+
 //   useCases    //
 struct Buscar_usuarios_model buscar_usuarios_usecase();
 
@@ -115,7 +124,7 @@ struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario);
 
 struct Login_usuario_model login_usuario_usecase(char[22], char[22]);
 
-void criar_relatorio_funcionarios_usecase();
+struct Criar_relatorio_model criar_relatorio_funcionarios_usecase();
 
 // repositories //
 struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
@@ -128,7 +137,7 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository();
 
 struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
 
-void criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model);
+struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model);
 
 //   services    //
 struct Buscar_funcionarios_model buscar_funcionarios_service();
@@ -141,13 +150,15 @@ struct Criar_usuario_model criar_usuario_service(char[22], char[22]);
 
 struct Login_usuario_model login_usuario_service(char[22], char[22]);
 
+struct Criar_relatorio_model criar_relatorio_funcionarios_service();
+
 void router(char buffer[1024]);
 
 // pages //
-void menu_page();
+void menu_page(bool erro);
 void login_page();
 void cadastro_page();
-void home_page();
+void home_page(bool erro);
 void buscar_usuarios_page();
 void buscar_funcionarios_page();
 void perfil_page();
@@ -156,5 +167,9 @@ void relatorios_page();
 
 char usuario_logado[22];
 char senha_usuario_logado[22];
+
+void montar_caminho_arquivo(char caminho_arquivo[150], char sufixo[75]);
+
+void delay(int segundos);
 
 #endif /* HEADERS_DOT_H */
