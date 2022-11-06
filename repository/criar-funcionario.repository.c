@@ -3,7 +3,7 @@
 
 struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario funcionario)
 {
-    struct Criar_funcionario_model model = {0, "", ""};
+    struct Criar_funcionario_model model = {};
 
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/funcionarios.txt");
@@ -13,7 +13,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
 
     if (txt_funcionarios == NULL)
     {
-        model.erro = 1;
+        model.erro = true;
         model.nome_funcionario = "";
         model.mensagem = "[ERRO] criar_funcionario_repository";
         return model;

@@ -1,9 +1,9 @@
 #include "../headers.h"
 
-struct Criar_funcionario_model mapear_criar_funcionario_model(char buffer[1024]);
-
 struct Criar_funcionario_model criar_funcionario_service(struct Funcionario funcionario)
 {
+    struct Criar_funcionario_model mapear_criar_funcionario_model(char buffer[1024]);
+    
     char response[1024] = {};
     char url[500] = "POST/funcionarios";
 

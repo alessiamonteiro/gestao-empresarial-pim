@@ -3,8 +3,8 @@
 
 void home_page(bool erro)
 {
-    char acao;
     system("clear");
+    char acao;
 
     puts(TEXTO_TITULO_HOME);
     puts(TEXTO_OPCOES_HOME);
@@ -33,12 +33,16 @@ void home_page(bool erro)
     case '4':
         cadastro_funcionario_page();
         break;
-
+    
     case '5':
-        relatorios_page(false);
+        cadastro_cliente_page();
         break;
 
     case '6':
+        relatorios_page(false);
+        break;
+
+    case '7':
         menu_page(false);
         break;
 

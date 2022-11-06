@@ -1,7 +1,7 @@
 #ifndef HEADERS_DOT_H /* This is an "include guard" */
 #define HEADERS_DOT_H /* prevents the file from being included twice. */
-                                         /* Including a header file twice causes all kinds */
-                                         /* of interesting problems.*/
+                      /* Including a header file twice causes all kinds */
+                      /* of interesting problems.*/
 
 /**
  * This is a function declaration.
@@ -27,6 +27,15 @@ struct Funcionario
     bool esta_de_ferias;
 };
 
+struct Cliente
+{
+    int id;
+    char nome[150];
+    char cpf_cnpj[19];
+    float valor_produto;
+    char data_entrega[11];
+};
+
 struct Usuario
 {
     char id[5];
@@ -34,55 +43,70 @@ struct Usuario
     char senha[22];
 };
 
-struct Cargo{
+struct Cargo
+{
     int id;
     char cargo[50];
 };
 
 struct Buscar_usuarios_model
-{   
-    int erro;
-    char * mensagem;
+{
+    bool erro;
+    char *mensagem;
     int quantidade_usuarios;
-    struct Usuario * usuarios;
+    struct Usuario *usuarios;
 };
 
 struct Buscar_funcionarios_model
 {
-    int erro;
-    char * mensagem;
+    bool erro;
+    char *mensagem;
     int quantidade_funcionarios;
-    struct Funcionario * funcionarios;
+    struct Funcionario *funcionarios;
+};
+
+struct Buscar_clientes_model
+{
+    bool erro;
+    char *mensagem;
+    int quantidade_clientes;
+    struct Cliente *clientes;
 };
 
 struct Buscar_cargos_model
-{   
-    int erro;
-    char * mensagem;
+{
+    bool erro;
+    char *mensagem;
     int quantidade_cargos;
     struct Cargo cargos[50];
 };
 
-struct Criar_usuario_model 
+struct Criar_usuario_model
 {
-    int erro;
-    char * mensagem;
-    char * usuario;
+    bool erro;
+    char *mensagem;
+    char *usuario;
 };
 
-struct Criar_funcionario_model 
+struct Criar_funcionario_model
 {
-    int erro;
-    char * mensagem;
-    char * nome_funcionario;
+    bool erro;
+    char *mensagem;
+    char *nome_funcionario;
+};
+
+struct Criar_cliente_model
+{
+    bool erro;
+    char *mensagem;
+    char *nome_cliente;
 };
 
 struct Criar_relatorio_model
 {
-    int erro;
-    char * mensagem;
+    bool erro;
+    char *mensagem;
 };
-
 
 struct Login_usuario
 {
@@ -90,10 +114,9 @@ struct Login_usuario
     char senha[22];
 };
 
-
 struct Login_usuario_model
 {
-    int erro;
+    bool erro;
     char mensagem[151];
     struct Login_usuario login_usuario;
 };
@@ -113,6 +136,8 @@ void criar_funcionario_controller(char buffer[1024]);
 
 void criar_relatorio_funcionarios_controller(char buffer[1024]);
 
+void criar_cliente_controller(char buffer[1024]);
+
 //   useCases    //
 struct Buscar_usuarios_model buscar_usuarios_usecase();
 
@@ -125,6 +150,8 @@ struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario);
 struct Login_usuario_model login_usuario_usecase(char[22], char[22]);
 
 struct Criar_relatorio_model criar_relatorio_funcionarios_usecase();
+
+struct Criar_cliente_model criar_cliente_usecase(struct Cliente cliente);
 
 // repositories //
 struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
@@ -139,6 +166,10 @@ struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
 
 struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model);
 
+struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente);
+
+struct Buscar_clientes_model buscar_clientes_repository();
+
 //   services    //
 struct Buscar_funcionarios_model buscar_funcionarios_service();
 
@@ -152,6 +183,8 @@ struct Login_usuario_model login_usuario_service(char[22], char[22]);
 
 struct Criar_relatorio_model criar_relatorio_funcionarios_service();
 
+struct Criar_cliente_model criar_cliente_service(struct Cliente cliente);
+
 void router(char buffer[1024]);
 
 // pages //
@@ -164,6 +197,7 @@ void buscar_funcionarios_page();
 void perfil_page();
 void cadastro_funcionario_page();
 void relatorios_page(bool erro);
+void cadastro_cliente_page();
 
 char usuario_logado[22];
 char senha_usuario_logado[22];

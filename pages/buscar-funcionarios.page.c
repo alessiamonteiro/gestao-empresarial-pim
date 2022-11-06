@@ -4,7 +4,7 @@
 void buscar_funcionarios_page() {
     system("clear");
 
-    int acao;
+    char voltar;
 
     struct Buscar_funcionarios_model model = buscar_funcionarios_service();
 
@@ -24,19 +24,8 @@ void buscar_funcionarios_page() {
         );
     }
 
-    puts("\n\nDigite 1 para voltar para a home");
-    scanf("%i", &acao);
-
-    switch (acao)
-    {
-    case 1:
-        home_page(false);
-        break;
-
-    default:
-        home_page(false);
-        // puts(TEXTO_OPCAO_INVALIDA);
-        // menu();
-        break;
-    }
+    puts(TEXTO_VOLTAR);
+    while ((voltar = getc(stdin)) == '\n')
+        ;
+    home_page(false);
 }

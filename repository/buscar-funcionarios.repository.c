@@ -99,7 +99,7 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
         if (ch == ',' && coluna == COLUNA_SALARIO)
         {
             coluna += 1;
-            funcionarios[contador_registros].salario = atoi(salario);
+            funcionarios[contador_registros].salario = atof(salario);
             continue;
         }
 
@@ -144,6 +144,8 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
             funcionarios[contador_registros].possui_ferias = atoi(&ch);
         }
     }
+
+    fclose(txt_funcionarios);
 
     model.erro = 0;
     model.mensagem = "[OK] buscar_funcionarios_repository";

@@ -6,18 +6,22 @@ gcc server.c \
 ./repository/criar-funcionario.repository.c \
 ./repository/criar-relatorio-funcionarios.repository.c \
 ./repository/buscar-cargos.repository.c \
+./repository/criar-cliente.repository.c \
+./repository/buscar-clientes.repository.c \
 ./controller/buscar-usuarios.controller.c \
 ./controller/buscar-funcionarios.controller.c \
 ./controller/login-usuario.controller.c \
 ./controller/criar-usuario.controller.c \
 ./controller/criar-funcionario.controller.c \
 ./controller/criar-relatorio-funcionarios.controller.c \
+./controller/criar-cliente.controller.c \
 ./usecase/buscar-usuarios.usecase.c \
 ./usecase/buscar-funcionarios.usecase.c \
 ./usecase/criar-usuario.usecase.c \
 ./usecase/criar-funcionario.usecase.c \
 ./usecase/login-usuario.usecase.c \
 ./usecase/criar-relatorio-funcionarios.usecase.c \
+./usecase/criar-cliente.usecase.c \
 ./routes/router.c \
 -o server
 
