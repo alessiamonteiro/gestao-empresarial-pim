@@ -44,7 +44,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
         {
             if (coluna == COLUNA_SENHA)
             {
-                strcpy(usuarios[contador_registros].senha, senha);
+                strcpy(usuarios[contador_registros].senha, decrypt(senha));
             }
 
             contador_registros += 1;
@@ -65,7 +65,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
         if (ch == ',' && coluna == COLUNA_USUARIO)
         {
             coluna += 1;
-            strcpy(usuarios[contador_registros].usuario, usuario);
+            strcpy(usuarios[contador_registros].usuario, decrypt(usuario));
             continue;
         }
 

@@ -21,7 +21,7 @@ void menu_page(bool erro)
         break;
 
     case '2':
-        cadastro_page();
+        cadastro_page(0);
         break;
 
     default:

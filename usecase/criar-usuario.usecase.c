@@ -37,5 +37,5 @@ struct Criar_usuario_model criar_usuario_usecase(char user[22], char senha[22])
         }
     }
 
-    return criar_usuario_repository(user, senha, id);
+    return criar_usuario_repository(encrypt(user), encrypt(senha), id);
 }

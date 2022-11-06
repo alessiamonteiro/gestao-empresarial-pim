@@ -206,4 +206,8 @@ void montar_caminho_arquivo(char caminho_arquivo[150], char sufixo[75]);
 
 void delay(int segundos);
 
+char *encrypt(char string[]);
+
+char *decrypt(char string[]);
+
 #endif /* HEADERS_DOT_H */

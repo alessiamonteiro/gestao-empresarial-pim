@@ -1,5 +1,6 @@
 gcc server.c \
 ./utils/montar-caminho-arquivo.utils.c \
+./utils/crypt.utils.c \
 ./repository/buscar-usuarios.repository.c \
 ./repository/buscar-funcionarios.repository.c \
 ./repository/criar-usuario.repository.c \
