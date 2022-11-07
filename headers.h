@@ -51,7 +51,7 @@ struct Cargo
 
 struct Buscar_usuarios_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     int quantidade_usuarios;
     struct Usuario *usuarios;
@@ -59,7 +59,7 @@ struct Buscar_usuarios_model
 
 struct Buscar_funcionarios_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     int quantidade_funcionarios;
     struct Funcionario *funcionarios;
@@ -67,7 +67,7 @@ struct Buscar_funcionarios_model
 
 struct Buscar_clientes_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     int quantidade_clientes;
     struct Cliente *clientes;
@@ -75,7 +75,7 @@ struct Buscar_clientes_model
 
 struct Buscar_cargos_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     int quantidade_cargos;
     struct Cargo cargos[50];
@@ -83,28 +83,28 @@ struct Buscar_cargos_model
 
 struct Criar_usuario_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     char *usuario;
 };
 
 struct Criar_funcionario_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     char *nome_funcionario;
 };
 
 struct Criar_cliente_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
     char *nome_cliente;
 };
 
 struct Criar_relatorio_model
 {
-    bool erro;
+    int erro;
     char *mensagem;
 };
 
@@ -116,7 +116,7 @@ struct Login_usuario
 
 struct Login_usuario_model
 {
-    bool erro;
+    int erro;
     char mensagem[151];
     struct Login_usuario login_usuario;
 };
@@ -188,15 +188,15 @@ struct Criar_cliente_model criar_cliente_service(struct Cliente cliente);
 void router(char buffer[1024]);
 
 // pages //
-void menu_page(bool erro);
+void menu_page(int erro);
 void login_page();
 void cadastro_page();
-void home_page(bool erro);
+void home_page(int erro);
 void buscar_usuarios_page();
 void buscar_funcionarios_page();
 void perfil_page();
 void cadastro_funcionario_page();
-void relatorios_page(bool erro);
+void relatorios_page(int erro);
 void cadastro_cliente_page();
 
 char usuario_logado[22];

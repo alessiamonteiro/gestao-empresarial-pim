@@ -1,7 +1,7 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void menu_page(bool erro)
+void menu_page(int erro)
 {
     char acao;
     system("clear");

@@ -1,7 +1,7 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-void home_page(bool erro)
+void home_page(int erro)
 {
     system("clear");
     char acao;
