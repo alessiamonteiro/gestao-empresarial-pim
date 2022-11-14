@@ -71,21 +71,21 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
         if (ch == ',' && coluna == COLUNA_NOME)
         {
             coluna += 1;
-            strcpy(funcionarios[contador_registros].nome, nome);
+            strcpy(funcionarios[contador_registros].nome, decrypt(nome));
             continue;
         }
 
         if (ch == ',' && coluna == COLUNA_CPF)
         {
             coluna += 1;
-            strcpy(funcionarios[contador_registros].cpf, cpf);
+            strcpy(funcionarios[contador_registros].cpf, decrypt(cpf));
             continue;
         }
 
         if (ch == ',' && coluna == COLUNA_RG)
         {
             coluna += 1;
-            strcpy(funcionarios[contador_registros].rg, rg);
+            strcpy(funcionarios[contador_registros].rg, decrypt(rg));
             continue;
         }
 

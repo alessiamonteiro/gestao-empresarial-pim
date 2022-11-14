@@ -30,7 +30,6 @@ void relatorios_page(int erro)
 
 void criar_relatorio_funcionarios()
 {
-    char voltar;
     struct Criar_relatorio_model model = criar_relatorio_funcionarios_service();
     puts(model.mensagem);
 
@@ -39,8 +38,5 @@ void criar_relatorio_funcionarios()
         system("./abrir-relatorios.sh");
     }
 
-    puts(TEXTO_VOLTAR);
-    while ((voltar = getc(stdin)) == '\n')
-        ;
-    home_page(false);
+    voltar();
 }

@@ -3,7 +3,6 @@
 
 void buscar_usuarios_page()
 {
-    char voltar;
     system("clear");
 
     struct Buscar_usuarios_model model = buscar_usuarios_service();
@@ -15,8 +14,5 @@ void buscar_usuarios_page()
     }
 
     puts("\n");
-    puts(TEXTO_VOLTAR);
-    while ((voltar = getc(stdin)) == '\n')
-        ;
-    home_page(false);
+    voltar();
 }

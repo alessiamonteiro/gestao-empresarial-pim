@@ -21,9 +21,9 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
 
     fprintf(txt_funcionarios, "%i,%s,%s,%s,%i,%.2f,%i,%i\n",
             funcionario.id,
-            funcionario.nome,
-            funcionario.cpf,
-            funcionario.rg,
+            encrypt(funcionario.nome),
+            encrypt(funcionario.cpf),
+            encrypt(funcionario.rg),
             funcionario.cargo,
             funcionario.salario,
             funcionario.possui_ferias,

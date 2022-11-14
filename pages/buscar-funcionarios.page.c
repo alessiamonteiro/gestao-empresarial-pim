@@ -4,8 +4,6 @@
 void buscar_funcionarios_page() {
     system("clear");
 
-    char voltar;
-
     struct Buscar_funcionarios_model model = buscar_funcionarios_service();
 
     puts("\n\nlista de funcionarios: \n");
@@ -24,8 +22,5 @@ void buscar_funcionarios_page() {
         );
     }
 
-    puts(TEXTO_VOLTAR);
-    while ((voltar = getc(stdin)) == '\n')
-        ;
-    home_page(false);
+    voltar();
 }

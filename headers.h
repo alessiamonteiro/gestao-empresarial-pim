@@ -210,4 +210,6 @@ char *encrypt(char string[]);
 
 char *decrypt(char string[]);
 
+void voltar();
+
 #endif /* HEADERS_DOT_H */

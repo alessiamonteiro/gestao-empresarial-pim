@@ -19,6 +19,7 @@ gcc -Wall main.c \
 ./utils/time.utils.c \
 ./utils/montar-caminho-arquivo.utils.c \
 ./utils/delay.utils.c \
+./utils/voltar.utils.c \
 ./client/socket-client.c -o start 
 
 ./start
