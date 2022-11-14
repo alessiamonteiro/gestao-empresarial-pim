@@ -21,8 +21,8 @@ struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente)
 
     fprintf(txt_clientes, "%i,%s,%s,%.2f,%s\n",
             cliente.id,
-            cliente.nome,
-            cliente.cpf_cnpj,
+            encrypt(cliente.nome),
+            encrypt(cliente.cpf_cnpj),
             cliente.valor_produto,
             cliente.data_entrega);
     

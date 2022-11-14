@@ -59,11 +59,11 @@ struct Buscar_clientes_model buscar_clientes_repository()
                 break;
 
             case 2:
-                strcpy(clientes[contador_registros].nome, nome);
+                strcpy(clientes[contador_registros].nome, decrypt(nome));
                 break;
 
             case 3:
-                strcpy(clientes[contador_registros].cpf_cnpj, cpf_cnpj);
+                strcpy(clientes[contador_registros].cpf_cnpj, decrypt(cpf_cnpj));
                 break;
 
             case 4:
