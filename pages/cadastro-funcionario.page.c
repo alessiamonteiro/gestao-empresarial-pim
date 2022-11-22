@@ -3,6 +3,7 @@
 
 void cadastro_funcionario_page()
 {
+    system("clear");
     struct Funcionario funcionario = {};
     funcionario.id = 0;
 

@@ -14,5 +14,5 @@ void buscar_usuarios_page()
     }
 
     puts("\n");
-    voltar();
+    voltar_consultas_page();
 }

@@ -43,13 +43,9 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
 
     while ((ch = fgetc(txt_funcionarios)) != EOF)
     {
+        putchar(ch);
         if (ch == '\n')
         {
-            if (coluna == COLUNA_ESTA_DE_FERIAS)
-            {
-                funcionarios[contador_registros].esta_de_ferias = atoi(&ch);
-            }
-
             contador_registros += 1;
             coluna = COLUNA_ID;
             strcpy(id, "");
@@ -142,6 +138,11 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
         if (coluna == COLUNA_POSSUI_FERIAS)
         {
             funcionarios[contador_registros].possui_ferias = atoi(&ch);
+        }
+
+        if (coluna == COLUNA_ESTA_DE_FERIAS)
+        {
+            funcionarios[contador_registros].esta_de_ferias = atoi(&ch);
         }
     }
 

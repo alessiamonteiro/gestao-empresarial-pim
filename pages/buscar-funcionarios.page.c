@@ -22,5 +22,5 @@ void buscar_funcionarios_page() {
         );
     }
 
-    voltar();
+    voltar_consultas_page();
 }

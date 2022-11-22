@@ -6,9 +6,10 @@ gcc -Wall main.c \
 ./service/criar-funcionario.service.c \
 ./service/criar-relatorio-funcionarios.service.c \
 ./service/criar-cliente.service.c \
+./service/buscar-clientes.service.c \
 ./pages/menu.page.c \
 ./pages/login.page.c \
-./pages/cadastro.page.c \
+./pages/cadastro-usuario.page.c \
 ./pages/cadastro-funcionario.page.c \
 ./pages/perfil.page.c \
 ./pages/home.page.c \
@@ -16,6 +17,9 @@ gcc -Wall main.c \
 ./pages/buscar-funcionarios.page.c \
 ./pages/relatorios.page.c \
 ./pages/cadastro-cliente.page.c \
+./pages/buscar-clientes.page.c \
+./pages/consultas.page.c \
+./pages/cadastros.page.c \
 ./utils/time.utils.c \
 ./utils/montar-caminho-arquivo.utils.c \
 ./utils/delay.utils.c \

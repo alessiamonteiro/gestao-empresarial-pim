@@ -5,16 +5,10 @@ const int COLUNA_ID = 1;
 const int COLUNA_USUARIO = 2;
 const int COLUNA_SENHA = 3;
 
-struct Usuario usuarios[] = {};
-
-struct Buscar_usuarios_model repository_retorno = {
-    0,
-    "",
-    0,
-};
-
 struct Buscar_usuarios_model buscar_usuarios_repository()
 {
+    struct Usuario usuarios[500] = {};
+    struct Buscar_usuarios_model repository_retorno = {};
     char ch;
     char usuario[22] = "";
     char senha[22] = "";

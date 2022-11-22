@@ -38,5 +38,5 @@ void criar_relatorio_funcionarios()
         system("./abrir-relatorios.sh");
     }
 
-    voltar();
+    voltar_home_page();
 }

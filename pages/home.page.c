@@ -3,51 +3,35 @@
 
 void home_page(int erro)
 {
-    system("clear");
     char acao;
 
+    system("clear");
     puts(TEXTO_TITULO_HOME);
     puts(TEXTO_OPCOES_HOME);
 
     if (erro == true)
-    {
         puts(TEXTO_OPCAO_INVALIDA);
-    }
 
     scanf("\n%c", &acao);
 
     switch (acao)
     {
     case '1':
-        perfil_page();
-        break;
+        return perfil_page();
 
     case '2':
-        buscar_usuarios_page();
-        break;
+        return consultas_page(false);
 
     case '3':
-        buscar_funcionarios_page();
-        break;
+        return cadastros_page(false);
 
     case '4':
-        cadastro_funcionario_page();
-        break;
-    
+        return relatorios_page(false);
+
     case '5':
-        cadastro_cliente_page();
-        break;
-
-    case '6':
-        relatorios_page(false);
-        break;
-
-    case '7':
-        menu_page(false);
-        break;
+        return menu_page(false);
 
     default:
-        home_page(true);
-        break;
+        return home_page(true);
     }
 }

@@ -15,6 +15,7 @@
 #include <locale.h>
 #include <monetary.h>
 
+// entidades //
 struct Funcionario
 {
     int id;
@@ -24,7 +25,7 @@ struct Funcionario
     int cargo;
     float salario;
     int possui_ferias;
-    bool esta_de_ferias;
+    int esta_de_ferias;
 };
 
 struct Cliente
@@ -49,6 +50,7 @@ struct Cargo
     char cargo[50];
 };
 
+// model //
 struct Buscar_usuarios_model
 {
     int erro;
@@ -123,93 +125,80 @@ struct Login_usuario_model
 
 void socket_client(char requisicao[], char responsta[]);
 
-//   controllers    //
-void buscar_usuarios_controller(char[1024]);
-
+//   controller   //
 void login_usuario_controller(char[1024]);
-
-void buscar_funcionarios_controller(char buffer[1024]);
-
+void buscar_usuarios_controller(char[1024]);
+void criar_cliente_controller(char buffer[1024]);
 void criar_usuario_controller(char buffer[1024]);
-
+void buscar_clientes_controller(char buffer[1024]);
 void criar_funcionario_controller(char buffer[1024]);
-
+void buscar_funcionarios_controller(char buffer[1024]);
 void criar_relatorio_funcionarios_controller(char buffer[1024]);
 
-void criar_cliente_controller(char buffer[1024]);
-
-//   useCases    //
-struct Buscar_usuarios_model buscar_usuarios_usecase();
-
-struct Buscar_funcionarios_model buscar_funcionarios_usecase();
-
+//   usecase    //
+struct Criar_relatorio_model criar_relatorio_funcionarios_usecase();
 struct Criar_usuario_model criar_usuario_usecase(char[22], char[22]);
-
+struct Criar_cliente_model criar_cliente_usecase(struct Cliente cliente);
 struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario);
+
+struct Buscar_usuarios_model buscar_usuarios_usecase();
+struct Buscar_clientes_model buscar_clientes_usecase();
+struct Buscar_funcionarios_model buscar_funcionarios_usecase();
 
 struct Login_usuario_model login_usuario_usecase(char[22], char[22]);
 
-struct Criar_relatorio_model criar_relatorio_funcionarios_usecase();
-
-struct Criar_cliente_model criar_cliente_usecase(struct Cliente cliente);
-
-// repositories //
-struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
-
-struct Buscar_usuarios_model buscar_usuarios_repository();
-
+// repository //
 struct Buscar_cargos_model buscar_cargos_repository();
-
+struct Buscar_clientes_model buscar_clientes_repository();
+struct Buscar_usuarios_model buscar_usuarios_repository();
 struct Buscar_funcionarios_model buscar_funcionarios_repository();
 
+struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente);
 struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
-
+struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
 struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model);
 
-struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente);
-
-struct Buscar_clientes_model buscar_clientes_repository();
-
-//   services    //
+//   service    //
+struct Buscar_clientes_model buscar_clientes_service();
+struct Buscar_usuarios_model buscar_usuarios_service();
 struct Buscar_funcionarios_model buscar_funcionarios_service();
 
-struct Buscar_usuarios_model buscar_usuarios_service();
-
-struct Criar_funcionario_model criar_funcionario_service(struct Funcionario funcionario);
-
 struct Criar_usuario_model criar_usuario_service(char[22], char[22]);
+struct Criar_cliente_model criar_cliente_service(struct Cliente cliente);
+struct Criar_relatorio_model criar_relatorio_funcionarios_service();
+struct Criar_funcionario_model criar_funcionario_service(struct Funcionario funcionario);
 
 struct Login_usuario_model login_usuario_service(char[22], char[22]);
 
-struct Criar_relatorio_model criar_relatorio_funcionarios_service();
-
-struct Criar_cliente_model criar_cliente_service(struct Cliente cliente);
-
 void router(char buffer[1024]);
 
-// pages //
-void menu_page(int erro);
+// page //
 void login_page();
-void cadastro_page();
-void home_page(int erro);
-void buscar_usuarios_page();
-void buscar_funcionarios_page();
 void perfil_page();
-void cadastro_funcionario_page();
+void menu_page(int erro);
+void home_page(int erro);
+void consultas_page(int erro);
 void relatorios_page(int erro);
+void cadastro_page();
 void cadastro_cliente_page();
+void cadastro_funcionario_page();
+void buscar_usuarios_page();
+void buscar_clientes_page();
+void buscar_funcionarios_page();
+void cadastros_page(int erro);
 
 char usuario_logado[22];
 char senha_usuario_logado[22];
 
+//utils
 void montar_caminho_arquivo(char caminho_arquivo[150], char sufixo[75]);
 
 void delay(int segundos);
 
 char *encrypt(char string[]);
-
 char *decrypt(char string[]);
 
-void voltar();
+void voltar_home_page();
+void voltar_consultas_page();
 
 #endif /* HEADERS_DOT_H */

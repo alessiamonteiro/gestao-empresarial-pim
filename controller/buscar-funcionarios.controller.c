@@ -1,9 +1,9 @@
 #include "../headers.h"
 
-void mapear_buscar_funcionarios_controller(char buffer[1024], struct Buscar_funcionarios_model model);
 
 void buscar_funcionarios_controller(char buffer[1024])
 {
+    void mapear_buscar_funcionarios_controller(char buffer[1024], struct Buscar_funcionarios_model model);
     struct Buscar_funcionarios_model model = buscar_funcionarios_usecase();
     mapear_buscar_funcionarios_controller(buffer, model);
 }

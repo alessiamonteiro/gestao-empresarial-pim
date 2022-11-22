@@ -16,6 +16,7 @@ gcc server.c \
 ./controller/criar-funcionario.controller.c \
 ./controller/criar-relatorio-funcionarios.controller.c \
 ./controller/criar-cliente.controller.c \
+./controller/buscar-clientes.controller.c \
 ./usecase/buscar-usuarios.usecase.c \
 ./usecase/buscar-funcionarios.usecase.c \
 ./usecase/criar-usuario.usecase.c \
@@ -23,6 +24,7 @@ gcc server.c \
 ./usecase/login-usuario.usecase.c \
 ./usecase/criar-relatorio-funcionarios.usecase.c \
 ./usecase/criar-cliente.usecase.c \
+./usecase/buscar-clientes.usecase.c \
 ./routes/router.c \
 -o server
 
