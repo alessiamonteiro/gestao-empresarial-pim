@@ -1,9 +1,12 @@
+[] validar cpf duplicado, e dois ultimos numeros do cpf
+[] PoC Tratar erro de falha ao se comunicar com o servidor
+[] PoC Dockerfile na parada
+
 [x] resolver bug do loop infinito ao digitar e pressionar enter durante a troca de tela login para menu
 [x] criar um client generico para as chamadas ao servidor
 [x] criar arquivo de constantes para textos
 [x] fornecer ao usuarios suas informacoes de cadastro
-[] PoC Dockerfile na parada
-[] PoC para encriptografar senhas e users de alguma forma mesmo que simples
+[x] encriptografar senhas e users de alguma forma mesmo que simples
 
 TASKS ESTAO EM ORDEM DE PRIORIDADE
 

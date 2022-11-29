@@ -12,9 +12,9 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
 {
     const int COLUNA_ID = 1;
     const int COLUNA_ERRO = 1;
+    const int COLUNA_CLIENTE = 4;
     const int COLUNA_MENSAGEM = 2;
     const int COLUNA_QUANTIDADE_REGISTROS = 3;
-    const int COLUNA_CLIENTE = 4;
 
     struct Cliente clientes[500] = {};
     struct Buscar_clientes_model model = {};
@@ -51,36 +51,28 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
             case 3:
                 model.quantidade_clientes = atoi(quantidade_clientes_char);
                 break;
-
-            default:
-                break;
             }
 
             coluna += 1;
             continue;
         }
 
-        if (response[i] == ';' && coluna_cliente == 5)
-        {
-            strcpy(clientes[contador_registros].data_entrega, data_entrega);
-            coluna_cliente = COLUNA_ID;
-            continue;
-        }
-
         if (coluna == COLUNA_MENSAGEM)
-        {
             strncat(mensagem, &response[i], 1);
-        }
 
         if (coluna == COLUNA_QUANTIDADE_REGISTROS)
-        {
             strncat(quantidade_clientes_char, &response[i], 1);
-        }
 
         if (coluna == COLUNA_CLIENTE)
         {
             if (response[i] == ';')
             {
+                if (coluna_cliente == 5)
+                {
+                    strcpy(clientes[contador_registros].data_entrega, data_entrega);
+                    coluna_cliente = COLUNA_ID;
+                }
+
                 contador_registros += 1;
                 strcpy(id, "");
                 strcpy(nome, "");
@@ -108,10 +100,6 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
 
                 case 4:
                     clientes[contador_registros].valor_produto = atof(valor_produto);
-                    coluna_cliente= COLUNA_ID;
-                    break;
-
-                default:
                     break;
                 }
 
@@ -139,9 +127,6 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
 
             case 5:
                 strncat(data_entrega, &response[i], 1);
-                break;
-
-            default:
                 break;
             }
         }

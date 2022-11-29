@@ -8,7 +8,7 @@ struct Buscar_clientes_model buscar_clientes_repository()
     char nome[150] = "";
     char cpf_cnpj[19] = "";
     char valor_produto[10] = "";
-    char data_entrega[11] = "";
+    char data_entrega[15] = "";
 
     int coluna = 1;
     int contador_registros = 0;
@@ -19,8 +19,7 @@ struct Buscar_clientes_model buscar_clientes_repository()
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/clientes.txt");
 
-    FILE *txt_clientes;
-    txt_clientes = fopen(caminho_arquivo, "r");
+    FILE *txt_clientes = fopen(caminho_arquivo, "r");
 
     if (txt_clientes == NULL)
     {
@@ -69,9 +68,6 @@ struct Buscar_clientes_model buscar_clientes_repository()
             case 4:
                 clientes[contador_registros].valor_produto = atof(valor_produto);
                 break;
-
-            default:
-                break;
             }
 
             coluna += 1;
@@ -98,8 +94,6 @@ struct Buscar_clientes_model buscar_clientes_repository()
 
         case 5:
             strncat(data_entrega, &ch, 1);
-
-        default:
             break;
         }
     }
