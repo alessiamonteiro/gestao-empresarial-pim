@@ -7,7 +7,7 @@ bool valida_caractere(int i, char string[]) {
 
 char *encrypt(char string[])
 {
-    for (int i = 0; (i < strlen(string) && string[i] != '\0'); i++)
+    for (int i = 0; (i < strlen(string) && string[i] != '\n'); i++)
     {
         if (valida_caractere(i, string))
         {
@@ -20,7 +20,7 @@ char *encrypt(char string[])
 
 char *decrypt(char string[])
 {
-    for (int i = 0; (i < strlen(string) && string[i] != '\0'); i++)
+    for (int i = 0; (i < strlen(string) && string[i] != '\n'); i++)
     {
         if (valida_caractere(i, string))
         {

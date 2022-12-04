@@ -205,5 +205,6 @@ void voltar_home_page();
 void voltar_consultas_page();
 void formatar_cpf(char cpf[11], char cpf_formatado[16]);
 void formatar_cnpj(char cnpj[14], char cnpj_formatado[19]);
+void formatar_cpf_cnj(char cpf_cnpj[19], char cpf_cnpj_formatado[19]);
 const double calcular_soma_valor_produtos(struct Buscar_clientes_model model);
 #endif /* HEADERS_DOT_H */

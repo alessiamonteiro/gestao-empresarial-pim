@@ -11,7 +11,7 @@ void buscar_clientes_page()
 
     for (int i = 0; i < model.quantidade_clientes; i++)
     {
-        printf(" id: %i\n nome: %s\n cpf_cnpj: %s\n valor_produto: R$ %.2f\n data_entrega: %s\n\n\n",
+        printf(" id: %i\n nome: %s\n cpf_cnpj: %s\n valor_produto: R$ %.2f\n data_entrega: %s\n\n",
                model.clientes[i].id,
                model.clientes[i].nome,
                model.clientes[i].cpf_cnpj,

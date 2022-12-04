@@ -29,8 +29,7 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/funcionarios.txt");
 
-    FILE *txt_funcionarios;
-    txt_funcionarios = fopen(caminho_arquivo, "r");
+    FILE *txt_funcionarios = fopen(caminho_arquivo, "r");
 
     if (txt_funcionarios == NULL)
     {
@@ -43,7 +42,6 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
 
     while ((ch = fgetc(txt_funcionarios)) != EOF)
     {
-        putchar(ch);
         if (ch == '\n')
         {
             contador_registros += 1;
@@ -152,6 +150,5 @@ struct Buscar_funcionarios_model buscar_funcionarios_repository()
     model.mensagem = "[OK] buscar_funcionarios_repository";
     model.quantidade_funcionarios = contador_registros;
     model.funcionarios = funcionarios;
-
     return model;
 }

@@ -62,7 +62,7 @@ struct Buscar_clientes_model buscar_clientes_repository()
                 break;
 
             case 3:
-                strcpy(clientes[contador_registros].cpf_cnpj, decrypt(cpf_cnpj));
+                formatar_cpf_cnj(decrypt(cpf_cnpj), clientes[contador_registros].cpf_cnpj);
                 break;
 
             case 4:

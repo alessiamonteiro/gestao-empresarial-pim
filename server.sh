@@ -2,6 +2,7 @@ gcc server.c \
 ./utils/montar-caminho-arquivo.utils.c \
 ./utils/formatar-cpf.utils.c \
 ./utils/formatar-cnpj.utils.c \
+./utils/formatar-cpf-cnpj.utils.c \
 ./utils/crypt.utils.c \
 ./repository/buscar-usuarios.repository.c \
 ./repository/buscar-funcionarios.repository.c \

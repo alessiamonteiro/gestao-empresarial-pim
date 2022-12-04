@@ -28,7 +28,7 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
     char id[10] = "";
     char nome[150] = "";
     char cpf_cnpj[15] = "";
-    char valor_produto[15] = "";
+    char valor_produto[10] = "";
     char data_entrega[11] = "";
     char quantidade_clientes_char[10] = "";
 
@@ -50,6 +50,9 @@ struct Buscar_clientes_model mapear_buscar_clientes_service(char response[1024])
 
             case 3:
                 model.quantidade_clientes = atoi(quantidade_clientes_char);
+                break;
+
+            default:
                 break;
             }
 

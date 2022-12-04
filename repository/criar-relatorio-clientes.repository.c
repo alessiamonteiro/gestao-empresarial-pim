@@ -52,16 +52,8 @@ struct Criar_relatorio_model criar_relatorio_clientes_repository(struct Buscar_c
         fprintf(txt_relatorio, "\tNome: ");
         fprintf(txt_relatorio, " %s\n", model.clientes[i].nome);
 
-        // formatar cpf_cpnj -> presume que cpf_cnpj tem 11 ou 16 caracteres
-        // (validar isso)
-        char cpf_cnpj_formatado[19];
-
-        strlen(model.clientes[i].cpf_cnpj) == 11
-            ? formatar_cpf(model.clientes[i].cpf_cnpj, cpf_cnpj_formatado)
-            : formatar_cnpj(model.clientes[i].cpf_cnpj, cpf_cnpj_formatado);
-
         fprintf(txt_relatorio, "\tCPF/CNPJ:");
-        fprintf(txt_relatorio, " %s\n", cpf_cnpj_formatado);
+        fprintf(txt_relatorio, " %s\n", model.clientes[i].cpf_cnpj);
 
         // formatar valor produto
         char valor_produto[50];
