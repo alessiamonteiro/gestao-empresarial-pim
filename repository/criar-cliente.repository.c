@@ -8,8 +8,7 @@ struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente)
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/clientes.txt");
 
-    FILE *txt_clientes;
-    txt_clientes = fopen(caminho_arquivo, "a");
+    FILE *txt_clientes = fopen(caminho_arquivo, "a");
 
     if (txt_clientes == NULL)
     {
@@ -25,7 +24,7 @@ struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente)
             encrypt(cliente.cpf_cnpj),
             cliente.valor_produto,
             cliente.data_entrega);
-    
+
     fclose(txt_clientes);
 
     model.erro = false;

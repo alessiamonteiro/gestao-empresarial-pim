@@ -1,6 +1,6 @@
 permissao para executar script front: chmod +x ./run.sh 
-back: chmod +x ./run.sh
-
+permissao para executar script back: chmod +x ./server.sh
+permissao para executar script abrir relatórios: chmod +x ./abrir-relatorios.sh
 
 compilar e executar front: ./run.sh
 compilar e executar back: ./server.sh

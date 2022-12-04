@@ -9,8 +9,7 @@ struct Criar_usuario_model criar_usuario_repository(char nome[22], char senha[22
 
     struct Criar_usuario_model model = {0, "", ""};
 
-    FILE *txt_usuarios;
-    txt_usuarios = fopen(caminho_arquivo, "a");
+    FILE *txt_usuarios = fopen(caminho_arquivo, "a");
 
     if (txt_usuarios == NULL)
     {

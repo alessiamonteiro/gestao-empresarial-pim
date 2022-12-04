@@ -8,8 +8,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/funcionarios.txt");
 
-    FILE *txt_funcionarios;
-    txt_funcionarios = fopen(caminho_arquivo, "a");
+    FILE *txt_funcionarios = fopen(caminho_arquivo, "a");
 
     if (txt_funcionarios == NULL)
     {

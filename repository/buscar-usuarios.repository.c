@@ -20,8 +20,7 @@ struct Buscar_usuarios_model buscar_usuarios_repository()
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/usuarios.txt");
 
-    FILE *txt_usuarios;
-    txt_usuarios = fopen(caminho_arquivo, "r");
+    FILE *txt_usuarios = fopen(caminho_arquivo, "r");
 
     if (txt_usuarios == NULL)
     {
