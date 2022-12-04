@@ -5,6 +5,7 @@ gcc -Wall main.c \
 ./service/criar-usuario.service.c \
 ./service/criar-funcionario.service.c \
 ./service/criar-relatorio-funcionarios.service.c \
+./service/criar-relatorio-clientes.service.c \
 ./service/criar-cliente.service.c \
 ./service/buscar-clientes.service.c \
 ./pages/menu.page.c \

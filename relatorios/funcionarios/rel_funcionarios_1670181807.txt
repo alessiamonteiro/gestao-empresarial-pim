@@ -1,0 +1,25 @@
+------------------------ Relatório de Funcionários ------------------------
+
+Data: 4/12/2022 
+
+Total de funcionários: 3
+
+Despesa total com funcionarios: R$ 29400.00
+
+Todos os funcionários: 
+
+	Nome:  magalu
+	Cargo: Gerente
+	Salario: R$ 1400.00
+	CPF: 456.789.456-45
+
+	Nome:  João Manara
+	Cargo: Estagiario
+	Salario: R$ 10000.00
+	CPF: 405.83
+
+	Nome:  Alan
+	Cargo: Cargo não encontrado
+	Salario: R$ 18000.00
+	CPF: 789.765.454-3
+

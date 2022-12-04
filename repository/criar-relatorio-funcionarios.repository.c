@@ -20,15 +20,14 @@ struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Busc
     sprintf(string_data_hora_atual, "%ld", segundos);
 
     // monta nome do arquivo
-    char sufixo[75] = "/relatorios/rel_funcionarios_";
+    char sufixo[75] = "/relatorios/funcionarios/rel_funcionarios_";
     strcat(sufixo, string_data_hora_atual);
     strcat(sufixo, ".txt");
 
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, sufixo);
 
-    FILE *txt_relatorio;
-    txt_relatorio = fopen(caminho_arquivo, "w");
+    FILE *txt_relatorio = fopen(caminho_arquivo, "w");
 
     if (txt_relatorio == NULL)
     {
@@ -67,23 +66,8 @@ struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Busc
         fprintf(txt_relatorio, "R$ %s\n", salario);
 
         // formatar cpf -> presume que cpf tem 11 caracteres ja preenchidos (validar isso)
-        char cpf_formatado[16] =
-            {
-                buscar_funcionarios_model.funcionarios[i].cpf[0],
-                buscar_funcionarios_model.funcionarios[i].cpf[1],
-                buscar_funcionarios_model.funcionarios[i].cpf[2],
-                '.',
-                buscar_funcionarios_model.funcionarios[i].cpf[3],
-                buscar_funcionarios_model.funcionarios[i].cpf[4],
-                buscar_funcionarios_model.funcionarios[i].cpf[5],
-                '.',
-                buscar_funcionarios_model.funcionarios[i].cpf[6],
-                buscar_funcionarios_model.funcionarios[i].cpf[7],
-                buscar_funcionarios_model.funcionarios[i].cpf[8],
-                '-',
-                buscar_funcionarios_model.funcionarios[i].cpf[9],
-                buscar_funcionarios_model.funcionarios[i].cpf[10],
-            };
+        char cpf_formatado[16];
+        formatar_cpf(buscar_funcionarios_model.funcionarios[i].cpf, cpf_formatado);
 
         fprintf(txt_relatorio, "\tCPF:");
         fprintf(txt_relatorio, " %s\n\n", cpf_formatado);
@@ -98,10 +82,9 @@ struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Busc
 const double calcular_soma_salarios(struct Buscar_funcionarios_model buscar_funcionarios_model)
 {
     double soma_todos_salarios = 0;
-    for (int i = 0; i < buscar_funcionarios_model.quantidade_funcionarios; i++)
-    {
+    for (int i = 0; i < buscar_funcionarios_model.quantidade_funcionarios; i++)    
         soma_todos_salarios += buscar_funcionarios_model.funcionarios[i].salario;
-    }
+
     return soma_todos_salarios;
 }
 

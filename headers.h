@@ -134,6 +134,7 @@ void buscar_clientes_controller(char buffer[1024]);
 void criar_funcionario_controller(char buffer[1024]);
 void buscar_funcionarios_controller(char buffer[1024]);
 void criar_relatorio_funcionarios_controller(char buffer[1024]);
+void criar_relatorio_clientes_controller(char buffer[1024]);
 
 //   usecase    //
 struct Criar_relatorio_model criar_relatorio_funcionarios_usecase();
@@ -144,6 +145,7 @@ struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario);
 struct Buscar_usuarios_model buscar_usuarios_usecase();
 struct Buscar_clientes_model buscar_clientes_usecase();
 struct Buscar_funcionarios_model buscar_funcionarios_usecase();
+struct Criar_relatorio_model criar_relatorio_clientes_usecase();
 
 struct Login_usuario_model login_usuario_usecase(char[22], char[22]);
 
@@ -157,7 +159,7 @@ struct Criar_cliente_model criar_cliente_repository(struct Cliente cliente);
 struct Criar_usuario_model criar_usuario_repository(char[22], char[22], int);
 struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario);
 struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model);
-
+struct Criar_relatorio_model criar_relatorio_clientes_repository(struct Buscar_clientes_model model);
 //   service    //
 struct Buscar_clientes_model buscar_clientes_service();
 struct Buscar_usuarios_model buscar_usuarios_service();
@@ -166,6 +168,7 @@ struct Buscar_funcionarios_model buscar_funcionarios_service();
 struct Criar_usuario_model criar_usuario_service(char[22], char[22]);
 struct Criar_cliente_model criar_cliente_service(struct Cliente cliente);
 struct Criar_relatorio_model criar_relatorio_funcionarios_service();
+struct Criar_relatorio_model criar_relatorio_clientes_service();
 struct Criar_funcionario_model criar_funcionario_service(struct Funcionario funcionario);
 
 struct Login_usuario_model login_usuario_service(char[22], char[22]);
@@ -200,5 +203,7 @@ char *decrypt(char string[]);
 
 void voltar_home_page();
 void voltar_consultas_page();
-
+void formatar_cpf(char cpf[11], char cpf_formatado[16]);
+void formatar_cnpj(char cnpj[14], char cnpj_formatado[19]);
+const double calcular_soma_valor_produtos(struct Buscar_clientes_model model);
 #endif /* HEADERS_DOT_H */

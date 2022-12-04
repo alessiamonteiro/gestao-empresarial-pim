@@ -17,8 +17,7 @@ struct Buscar_cargos_model buscar_cargos_repository()
     char caminho_arquivo[150] = "";
     montar_caminho_arquivo(caminho_arquivo, "/database/cargos.txt");
 
-    FILE *txt_cargos;
-    txt_cargos = fopen(caminho_arquivo, "r");
+    FILE *txt_cargos = fopen(caminho_arquivo, "r");
 
     if (txt_cargos == NULL)
     {

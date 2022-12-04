@@ -12,11 +12,13 @@
 #define TEXTO_TITULO_CADASTRO_FUNCIONARIO   "-------------- CADASTRO DE FUNCIONARIO --------------\n"
 #define TEXTO_TITULO_CADASTRO_CLIENTE       "---------------- CADASTRO DE CLIENTE ----------------\n"
 #define TEXTO_TITULO_RELATORIO_FUNCIONARIOS "------------------------ Relatório de Funcionários ------------------------\n"
+#define TEXTO_TITULO_RELATORIO_CLIENTES     "------------------------ Relatório de Clientes ----------------------------\n"
+
 
 #define TEXTO_OPCAO_INVALIDA                "\n opção invalida, por favor digite novamente:"
 #define TEXTO_OPCOES_MENU                   "\n Digite o número referente a ação que deseja!\n\n 1- Login \n 2- Cadastro"
 #define TEXTO_OPCOES_HOME                   "\nDigite o número referente a ação que deseja!\n\n 1- Perfil\n 2- Consultas\n 3- Cadastros\n 4- Relatórios\n 5- Sair"
-#define TEXTO_OPCOES_RELATORIOS             "\n Digite o número referente a ação que deseja!\n\n 1- Criar relatório de funcionários"
+#define TEXTO_OPCOES_RELATORIOS             "\n Digite o número referente a ação que deseja!\n\n 1- Criar relatório de funcionários\n 2- Criar relatório de clientes"
 #define TEXTO_OPCOES_CONSULTAS              "\n Digite o número referente a ação que deseja!\n\n 1- usuários\n 2- funcionarios\n 3- clientes\n\n\n 4-voltar para home"
 #define TEXTO_OPCOES_CADASTROS              "\n Digite o número referente a ação que deseja!\n\n 1- cadastrar funcionario\n 2- cadastrar cliente\n\n\n 3-voltar para home"
 

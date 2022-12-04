@@ -1,13 +1,13 @@
 #include <time.h>
 
-const char * time_to_string(time_t timestamp)
+const char *time_to_string(time_t timestamp)
 {
     char ds[64] = "";
-    char * datestring = ds;
+    char *datestring = ds;
 
     // time_t t = time(NULL);
-    struct tm* tm_local = localtime(&timestamp);
-    
+    struct tm *tm_local = localtime(&timestamp);
+
     // YYYY-MM-DD
     strftime(datestring, 64, "%d/%m/%Y", tm_local); // can use the %F shorthand
     return datestring;
@@ -25,10 +25,10 @@ time_t create_time(int day, int month, int year)
 {
     // Create and initialize a tm struct.
     struct tm st = {
-                    .tm_mday = day,
-                    .tm_mon = month - 1, // 0-based so 6 is July
-                    .tm_year = year - 1900, // 1900 + or -
-                    .tm_isdst = 1};
+        .tm_mday = day,
+        .tm_mon = month - 1,    // 0-based so 6 is July
+        .tm_year = year - 1900, // 1900 + or -
+        .tm_isdst = 1};
 
     // Create a time_t from a tm struct.
     // This also sets tm_wday and tm_yday.
