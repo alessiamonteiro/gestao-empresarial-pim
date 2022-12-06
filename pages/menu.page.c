@@ -8,24 +8,20 @@ void menu_page(int erro)
     puts(TEXTO_TITULO_MENU);
     puts(TEXTO_OPCOES_MENU);
 
-    if (erro == true) {
+    if (erro == true)
         puts(TEXTO_OPCAO_INVALIDA);
-    }
 
     scanf("\n%c", &acao);
 
     switch (acao)
     {
     case '1':
-        login_page();
-        break;
+        return login_page();
 
     case '2':
-        cadastro_page(0);
-        break;
+        return cadastro_page(0);
 
     default:
-        menu_page(true);
-        break;
+        return menu_page(true);
     }
 }

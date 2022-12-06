@@ -1,8 +1,6 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-const char *encontrar_cargo(int id, struct Buscar_cargos_model buscar_cargos_model);
-
 const double calcular_soma_salarios(struct Buscar_funcionarios_model buscar_funcionarios_model);
 
 struct Criar_relatorio_model criar_relatorio_funcionarios_repository(struct Buscar_funcionarios_model buscar_funcionarios_model, struct Buscar_cargos_model buscar_cargos_model)
@@ -86,18 +84,4 @@ const double calcular_soma_salarios(struct Buscar_funcionarios_model buscar_func
         soma_todos_salarios += buscar_funcionarios_model.funcionarios[i].salario;
 
     return soma_todos_salarios;
-}
-
-const char *encontrar_cargo(int id, struct Buscar_cargos_model model)
-{
-    for (int i = 0; i < model.quantidade_cargos; i++)
-    {
-        if (model.cargos[i].id == id)
-        {
-            char *cargo = model.cargos[i].cargo;
-            return cargo;
-        }
-    }
-
-    return "Cargo não encontrado";
 }

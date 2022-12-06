@@ -93,8 +93,8 @@ struct Criar_usuario_model
 struct Criar_funcionario_model
 {
     int erro;
-    char *mensagem;
-    char *nome_funcionario;
+    char mensagem[200];
+    char nome_funcionario[150];
 };
 
 struct Criar_cliente_model
@@ -184,7 +184,7 @@ void consultas_page(int erro);
 void relatorios_page(int erro);
 void cadastro_page();
 void cadastro_cliente_page();
-void cadastro_funcionario_page();
+void cadastro_funcionario_page(int erro, char mensagem[200]);
 void buscar_usuarios_page();
 void buscar_clientes_page();
 void buscar_funcionarios_page();
@@ -205,6 +205,9 @@ void voltar_home_page();
 void voltar_consultas_page();
 void formatar_cpf(char cpf[11], char cpf_formatado[16]);
 void formatar_cnpj(char cnpj[14], char cnpj_formatado[19]);
-void formatar_cpf_cnj(char cpf_cnpj[19], char cpf_cnpj_formatado[19]);
+void formatar_cpf_cnpj(char cpf_cnpj[19], char cpf_cnpj_formatado[19]);
 const double calcular_soma_valor_produtos(struct Buscar_clientes_model model);
+bool possui_caracteres_invalidos(char string[]);
+bool usuario_senha_invalido(char *usuario_senha);
+const char *encontrar_cargo(int id, struct Buscar_cargos_model buscar_cargos_model);
 #endif /* HEADERS_DOT_H */

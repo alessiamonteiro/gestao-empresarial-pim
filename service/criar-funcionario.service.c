@@ -44,7 +44,7 @@ struct Criar_funcionario_model mapear_criar_funcionario_model(char buffer[1024])
     const int COLUNA_NOME = 3;
     char erro[2] = "";
     char mensagem[200];
-    char nome[200];
+    char nome[150];
 
     int coluna = COLUNA_ERRO;
 
@@ -75,7 +75,7 @@ struct Criar_funcionario_model mapear_criar_funcionario_model(char buffer[1024])
     }
 
     model.erro = atoi(erro);
-    model.mensagem = mensagem;
-    model.nome_funcionario = nome;
+    strcpy(model.mensagem, mensagem);
+    strcpy(model.nome_funcionario, nome);
     return model;
 }

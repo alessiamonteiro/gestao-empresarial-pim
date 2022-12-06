@@ -1,31 +1,31 @@
 #include "../headers.h"
 
-struct Login_usuario_model login_usuario_usecase(char user[22], char senha_usuario[22])
+struct Login_usuario_model login_usuario_usecase(char usuario[22], char senha[22])
 {
     struct Login_usuario login_usuario;
-    struct Login_usuario_model usecase_retorno;
-    struct Buscar_usuarios_model repository_retorno = buscar_usuarios_repository();
+    struct Login_usuario_model output;
+    struct Buscar_usuarios_model buscar_usuarios = buscar_usuarios_repository();
 
-    for (int i = 0; i < repository_retorno.quantidade_usuarios; i++)
+    for (int i = 0; i < buscar_usuarios.quantidade_usuarios; i++)
     {
-        int compara_nome = strcmp(repository_retorno.usuarios[i].usuario, user);
-        int compara_senha = strcmp(repository_retorno.usuarios[i].senha, senha_usuario);
+        int compara_nome = strcmp(buscar_usuarios.usuarios[i].usuario, usuario);
+        int compara_senha = strcmp(buscar_usuarios.usuarios[i].senha, senha);
 
         if (compara_nome == 0 && compara_senha == 0)
         {
-            strcpy(login_usuario.usuario, user);
-            strcpy(login_usuario.senha, senha_usuario);
-            strcpy(usecase_retorno.mensagem, "login realizado com sucesso\n");
-            usecase_retorno.erro = 0;
-            usecase_retorno.login_usuario = login_usuario;
-            return usecase_retorno;
+            strcpy(login_usuario.usuario, usuario);
+            strcpy(login_usuario.senha, senha);
+            strcpy(output.mensagem, "login realizado com sucesso\n");
+            output.erro = 0;
+            output.login_usuario = login_usuario;
+            return output;
         }
     }
 
     strcpy(login_usuario.usuario, "");
     strcpy(login_usuario.senha, "");
-    strcpy(usecase_retorno.mensagem, "usuario ou senha incorretos\n");
-    usecase_retorno.erro = 1;
-    usecase_retorno.login_usuario = login_usuario;
-    return usecase_retorno;
+    strcpy(output.mensagem, "usuario ou senha incorretos\n");
+    output.erro = 1;
+    output.login_usuario = login_usuario;
+    return output;
 }

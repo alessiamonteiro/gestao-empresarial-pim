@@ -18,21 +18,18 @@ int main()
   struct sockaddr_in server_addr, client_addr;
   char buffer[1024];
 
-  // socket create and verification
   server_sock = socket(AF_INET, SOCK_STREAM, 0);
 
   if (server_sock == -1)
   {
-    printf("[ERROR] socket create\n");
+    printf("[ERRO] criar socket\n");
     exit(0);
   }
 
-  printf("[OK] socket create\n");
+  printf("[OK] criar socket\n");
 
   bzero(&server_addr, sizeof(server_addr));
-  // memset(&server_addr, '\0', sizeof(server_addr));
 
-  // assign IP, PORT
   server_addr.sin_family = AF_INET;
   server_addr.sin_port = htons(PORT);
   server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -40,20 +37,20 @@ int main()
   // Binding newly created socket to given IP and verification
   if ((bind(server_sock, (SA *)&server_addr, sizeof(server_addr))) != 0)
   {
-    printf("[ERROR] server bind\n");
+    printf("[ERRO] bind servidor\n");
     exit(0);
   }
   
-  printf("[OK] server bind\n");
+  printf("[OK] bind servidor\n");
 
   // Now server is ready to listen and verification
   if ((listen(server_sock, 5)) != 0)
   {
-    printf("[ERROR] server listen\n");
+    printf("[ERRO] servidor ouvir\n");
     exit(0);
   }
   
-  printf("[OK] server listen\n");
+  printf("[OK] servidor ouvir\n");
 
   while (1)
   {
@@ -62,23 +59,23 @@ int main()
 
     if (client_sock < 0)
     {
-      printf("[ERROR] server accept client\n");
+      printf("[ERRO] servidor aceitar cliente\n");
       exit(0);
     }
 
-    printf("[OK] server accept client\n");
+    printf("[OK] servidor aceitar cliente\n");
 
     bzero(buffer, MAX);
     recv(client_sock, buffer, sizeof(buffer), 0);
-    printf("Client: %s\n", buffer);
+    printf("Cliente: %s\n", buffer);
 
     router(buffer);
 
-    printf("Server: %s\n", buffer);
+    printf("Servidor: %s\n", buffer);
     send(client_sock, buffer, strlen(buffer), 0);
 
     close(client_sock);
-    printf("[+]Client disconnected.\n\n");
+    printf("[+]Cliente desconectado.\n\n");
   }
 
   return 0;

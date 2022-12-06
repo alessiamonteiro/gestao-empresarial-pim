@@ -6,7 +6,6 @@ struct Buscar_funcionarios_model buscar_funcionarios_service()
 {
     char response[1024] = {};
     socket_client("GET/funcionarios", response);
-    puts(response);
     return mapear_buscar_funcionarios_service(response);
 }
 

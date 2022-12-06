@@ -4,6 +4,10 @@ gcc server.c \
 ./utils/formatar-cnpj.utils.c \
 ./utils/formatar-cpf-cnpj.utils.c \
 ./utils/crypt.utils.c \
+./utils/validar-caracteres-invalidos.utils.c \
+./utils/validar-usuario-invalido.utils.c \
+./utils/encontrar-cargo.utils.c \
+\
 ./repository/buscar-usuarios.repository.c \
 ./repository/buscar-funcionarios.repository.c \
 ./repository/criar-usuario.repository.c \
@@ -13,6 +17,7 @@ gcc server.c \
 ./repository/buscar-cargos.repository.c \
 ./repository/criar-cliente.repository.c \
 ./repository/buscar-clientes.repository.c \
+\
 ./controller/buscar-usuarios.controller.c \
 ./controller/buscar-funcionarios.controller.c \
 ./controller/login-usuario.controller.c \
@@ -22,6 +27,7 @@ gcc server.c \
 ./controller/criar-relatorio-clientes.controller.c \
 ./controller/criar-cliente.controller.c \
 ./controller/buscar-clientes.controller.c \
+\
 ./usecase/buscar-usuarios.usecase.c \
 ./usecase/buscar-funcionarios.usecase.c \
 ./usecase/criar-usuario.usecase.c \
@@ -31,6 +37,7 @@ gcc server.c \
 ./usecase/criar-relatorio-clientes.usecase.c \
 ./usecase/criar-cliente.usecase.c \
 ./usecase/buscar-clientes.usecase.c \
+\
 ./routes/router.c \
 -o server
 

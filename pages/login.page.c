@@ -23,8 +23,8 @@ void login_page(int erro)
     if (usecase_retorno.erro == true)
         return login_page(1);
 
-    strcpy(usuario_logado, usecase_retorno.login_usuario.usuario);
-    strcpy(senha_usuario_logado, usecase_retorno.login_usuario.senha);
+    strcpy(usuario_logado, user);
+    strcpy(senha_usuario_logado, senha_usuario);
 
     puts(usecase_retorno.mensagem);
     system("sleep 03");

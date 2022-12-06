@@ -1,0 +1,20 @@
+------------------------ Relatório de Clientes ----------------------------
+
+Data: 5/12/2022 
+
+Total de clientes: 2
+
+Receita total dos produtos: R$ 70000.00
+
+Todos os clientes: 
+
+	Nome:  ciandt
+	CPF/CNPJ: 01.236.547/8965-47
+	Valor do produto encomendado: R$ 20000.00
+	Data de entrega:  20/10/2012
+
+	Nome:  oboticario
+	CPF/CNPJ: 456.789.456-78
+	Valor do produto encomendado: R$ 50000.00
+	Data de entrega:  20/12/2024
+

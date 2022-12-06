@@ -16,7 +16,7 @@ void cadastros_page(int erro)
     switch (acao)
     {
     case '1':
-        return cadastro_funcionario_page();
+        return cadastro_funcionario_page(0, "");
 
     case '2':
         return cadastro_cliente_page();

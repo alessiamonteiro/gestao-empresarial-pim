@@ -1,2 +1,2 @@
 1,Gerente
-2,Estagiario
+2,Estagiário

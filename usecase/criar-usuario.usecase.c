@@ -1,41 +1,49 @@
 #include "../headers.h"
 #include "../constantes.h"
 
-struct Criar_usuario_model criar_usuario_usecase(char user[22], char senha[22])
+int calcular_proximo_id(struct Buscar_usuarios_model input)
 {
-    struct Criar_usuario_model criar_usuario_model = {0, "", ""};
+    return input.quantidade_usuarios == 0
+               ? 1
+               : atoi(input.usuarios[input.quantidade_usuarios - 1].id) + 1;
+}
+
+struct Criar_usuario_model criar_usuario_usecase(char usuario[22], char senha[22])
+{
+    struct Criar_usuario_model output = {};
+
+    if (usuario_senha_invalido(usuario) || usuario_senha_invalido(senha))
+    {
+        strcpy(output.usuario, "");
+        strcpy(output.mensagem, "usuario ou senha incorretos\n");
+        output.erro = 1;
+        return output;
+    }
+
     struct Buscar_usuarios_model buscar_usuarios_model = buscar_usuarios_repository();
-    int id;
 
     if (buscar_usuarios_model.erro == true)
     {
-        criar_usuario_model.erro = true;
-        criar_usuario_model.mensagem = buscar_usuarios_model.mensagem;
-        criar_usuario_model.usuario = "";
-        return criar_usuario_model;
-    }
-
-    if (buscar_usuarios_model.quantidade_usuarios == 0)
-    {
-        id = 1;
-    }
-    else
-    {
-        id = atoi(buscar_usuarios_model.usuarios[buscar_usuarios_model.quantidade_usuarios - 1].id) + 1;
+        output.erro = true;
+        output.mensagem = buscar_usuarios_model.mensagem;
+        output.usuario = "";
+        return output;
     }
 
     for (int i = 0; i < buscar_usuarios_model.quantidade_usuarios; i++)
     {
-        int valida_usuario_existente = strcmp(buscar_usuarios_model.usuarios[i].usuario, user);
+        int valida_usuario_existente = strcmp(buscar_usuarios_model.usuarios[i].usuario, usuario);
 
         if (valida_usuario_existente == 0)
         {
-            criar_usuario_model.erro = true;
-            criar_usuario_model.usuario = "";
-            criar_usuario_model.mensagem = TEXTO_ERRO_CADASTRO_USUARIO_EXISTENTE;
-            return criar_usuario_model;
+            output.erro = true;
+            output.usuario = "";
+            output.mensagem = TEXTO_ERRO_CADASTRO_USUARIO_EXISTENTE;
+            return output;
         }
     }
 
-    return criar_usuario_repository(encrypt(user), encrypt(senha), id);
+    int id = calcular_proximo_id(buscar_usuarios_model);
+
+    return criar_usuario_repository(encrypt(usuario), encrypt(senha), id);
 }

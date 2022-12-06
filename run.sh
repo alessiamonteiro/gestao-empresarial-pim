@@ -1,4 +1,5 @@
 gcc -Wall main.c \
+./repository/buscar-cargos.repository.c \
 ./service/buscar-usuarios.service.c \
 ./service/buscar-funcionarios.service.c \
 ./service/login-usuario.service.c \
@@ -8,6 +9,7 @@ gcc -Wall main.c \
 ./service/criar-relatorio-clientes.service.c \
 ./service/criar-cliente.service.c \
 ./service/buscar-clientes.service.c \
+\
 ./pages/menu.page.c \
 ./pages/login.page.c \
 ./pages/cadastro-usuario.page.c \
@@ -21,10 +23,16 @@ gcc -Wall main.c \
 ./pages/buscar-clientes.page.c \
 ./pages/consultas.page.c \
 ./pages/cadastros.page.c \
+\
 ./utils/time.utils.c \
 ./utils/montar-caminho-arquivo.utils.c \
 ./utils/delay.utils.c \
 ./utils/voltar.utils.c \
+./utils/validar-caracteres-invalidos.utils.c \
+./utils/validar-usuario-invalido.utils.c \
+./utils/formatar-cpf.utils.c \
+./utils/encontrar-cargo.utils.c \
+\
 ./client/socket-client.c -o start 
 
 ./start

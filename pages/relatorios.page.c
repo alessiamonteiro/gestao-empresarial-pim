@@ -12,9 +12,7 @@ void relatorios_page(int erro)
     puts(TEXTO_OPCOES_RELATORIOS);
 
     if (erro == true)
-    {
         puts(TEXTO_OPCAO_INVALIDA);
-    }
 
     scanf("\n%c", &acao);
 
@@ -25,6 +23,9 @@ void relatorios_page(int erro)
 
     case '2':
         return criar_relatorio_clientes();
+    
+    case '3':
+        return home_page(0);
 
     default:
         return relatorios_page(true);

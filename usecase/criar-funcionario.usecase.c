@@ -9,8 +9,8 @@ struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario func
     if (buscar_funcionarios_model.erro == true)
     {
         criar_funcionario_model.erro = true;
-        criar_funcionario_model.mensagem = buscar_funcionarios_model.mensagem;
-        criar_funcionario_model.nome_funcionario = "";
+        strcpy(criar_funcionario_model.mensagem,buscar_funcionarios_model.mensagem);
+        strcpy(criar_funcionario_model.nome_funcionario, "");
         return criar_funcionario_model;
     }
 
@@ -35,8 +35,8 @@ struct Criar_funcionario_model criar_funcionario_usecase(struct Funcionario func
             valida_rg_existente == 0)
         {
             criar_funcionario_model.erro = true;
-            criar_funcionario_model.nome_funcionario = "";
-            criar_funcionario_model.mensagem = "Nome, CPF, ou RG já foram cadastrados anteriormente";
+            strcpy(criar_funcionario_model.nome_funcionario, "");
+            strcpy(criar_funcionario_model.mensagem, "Nome, CPF, ou RG já foram cadastrados anteriormente");
             return criar_funcionario_model;
         }
     }

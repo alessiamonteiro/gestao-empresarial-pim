@@ -13,8 +13,8 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
     if (txt_funcionarios == NULL)
     {
         model.erro = true;
-        model.nome_funcionario = "";
-        model.mensagem = "[ERRO] criar_funcionario_repository";
+        strcpy(model.nome_funcionario,"");
+        strcpy(model.mensagem, "[ERRO] criar_funcionario_repository");
         return model;
     }
 
@@ -31,7 +31,7 @@ struct Criar_funcionario_model criar_funcionario_repository(struct Funcionario f
     fclose(txt_funcionarios);
 
     model.erro = false;
-    model.nome_funcionario = funcionario.nome;
-    model.mensagem = "Cadastro realizado com sucesso!\n";
+    strcpy(model.nome_funcionario, funcionario.nome);
+    strcpy(model.mensagem, "Cadastro realizado com sucesso!\n");
     return model;
 }
