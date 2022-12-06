@@ -1,2 +1,6 @@
 1,Gerente
 2,Estagiário
+3,Desenvolvedor
+4,Arquiteto
+5,Designer
+6,Tester
