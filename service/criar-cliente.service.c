@@ -23,7 +23,6 @@ struct Criar_cliente_model criar_cliente_service(struct Cliente cliente)
     strcat(url, cliente.data_entrega);
 
     socket_client(url, response);
-    puts(response);
     return mapear_criar_cliente_model(response);
 }
 

@@ -12,7 +12,6 @@ struct Criar_usuario_model criar_usuario_service(char usuario[22], char senha[22
     strcat(url, senha);
 
     socket_client(url, response);
-    puts(response);
 
     return mapear_criar_usuario_model(response);
 }

@@ -33,7 +33,6 @@ struct Criar_funcionario_model criar_funcionario_service(struct Funcionario func
     strcat(url, salario);
 
     socket_client(url, response);
-    puts(response);
     return mapear_criar_funcionario_model(response);
 }
 

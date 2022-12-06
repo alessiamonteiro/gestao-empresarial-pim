@@ -8,7 +8,6 @@ struct Criar_relatorio_model criar_relatorio_clientes_service()
     char url[500] = "POST/relatorios/clientes";
 
     socket_client(url, response);
-    puts(response);
     return mapear_criar_relatorio_clientes_service(response);
 }
 

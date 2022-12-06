@@ -1,0 +1,20 @@
+------------------------ Relatório de Funcionários ------------------------
+
+Data: 3/12/2022 
+
+Total de funcionários: 2
+
+Despesa total com funcionarios: R$ 12400.00
+
+Todos os funcionários: 
+
+	Nome:  João Manara
+	Cargo: Gerente
+	Salario: R$ 8400.00
+	CPF: 789.456.123-54
+
+	Nome:  Alessia Monteiro
+	Cargo: Gerente
+	Salario: R$ 4000.00
+	CPF: 741.258.963-69
+
